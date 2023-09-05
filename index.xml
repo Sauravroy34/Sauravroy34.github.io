@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My blog</title>
+    <link>https://Sauravroy34.github.io/</link>
+    <description>Recent content on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2023 17:16:51 +0530</lastBuildDate>
+    
+        <atom:link href="https://Sauravroy34.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Posts</title>
+      <link>https://Sauravroy34.github.io/posts/</link>
+      <pubDate>Tue, 05 Sep 2023 17:16:51 +0530</pubDate>
+      
+      <guid>https://Sauravroy34.github.io/posts/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
