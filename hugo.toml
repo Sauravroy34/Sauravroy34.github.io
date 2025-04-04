@@ -1,0 +1,28 @@
+baseURL = 'https://Sauravroy34.github.io/'
+languageCode = 'en-us'
+title = 'Saurav Kumar Roy'
+theme = 'hugo-theme-tokiwa'
+
+
+[params]
+math = true # for introducing $KaTEX$
+env = "production" # for Google Analytics and DISQUS.
+bannerFont = "fonts/exampleFont" # custom your own font for the title.
+postDateFormat = "2006-1-2" # override custom date format posts.
+
+[menu]
+# Shown in the side menu.
+  [[menu.main]]
+    name = "Posts"
+    weight = 1
+    identifier = "post"
+    url = "/post/"
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+
+[params.social]
+github="https://github.com/Sauravroy34"
+linkedin = "www.linkedin.com/in/saurav-kumar-roy-0aa286280"
+twitter="https://x.com/Sauravnotfound"

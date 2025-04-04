@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Saurav Kumar Roy</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Saurav Kumar Roy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Apr 2025 16:00:58 +0530</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Open Source Journey</title>
+      <link>http://localhost:1313/posts/my-open-source-journey/</link>
+      <pubDate>Fri, 04 Apr 2025 16:00:58 +0530</pubDate>
+      
+      <guid>http://localhost:1313/posts/my-open-source-journey/</guid>
+      <description>&lt;h2 id=&#34;my-open-source-journey&#34;&gt;My Open Source Journey&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s been around &lt;strong&gt;8 months&lt;/strong&gt; since I started contributing to &lt;strong&gt;open source&lt;/strong&gt;, beginning with &lt;a href=&#34;https://openastronomy.org/&#34;&gt;OpenAstronomy&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;OpenAstronomy is an umbrella organization, and within it, I am an active contributor to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sunpy/sunpy&#34;&gt;SunPy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/StingraySoftware/stingray&#34;&gt;Stingray Software&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;an-incredible-journey-so-far&#34;&gt;An Incredible Journey So Far&lt;/h3&gt;
+&lt;p&gt;This journey has been &lt;strong&gt;amazing&lt;/strong&gt;! I&amp;rsquo;ve had the opportunity to interact with incredible people—some are &lt;strong&gt;researchers&lt;/strong&gt;, some work at &lt;strong&gt;NASA&lt;/strong&gt; and &lt;strong&gt;ESA&lt;/strong&gt;, and others are &lt;strong&gt;professors at top universities&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Through open source, I&amp;rsquo;ve learned &lt;strong&gt;a lot&lt;/strong&gt; about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational Astronomy&lt;/li&gt;
+&lt;li&gt;Coding Standards&lt;/li&gt;
+&lt;li&gt;Unit Testing with &lt;code&gt;pytest&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Documentation with &lt;code&gt;Sphinx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Pre-commit Hooks&lt;/li&gt;
+&lt;li&gt;learned how to work with File formats like &lt;code&gt;FITS&lt;/code&gt; and &lt;code&gt;ASDF&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By the way i got into open source around september 2024 and journey has been amazing so far!!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/posts/my-first-post/</link>
+      <pubDate>Fri, 04 Apr 2025 15:57:50 +0530</pubDate>
+      
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;p&gt;This is my new blogging site. I will be posting my journey and experiences here. Enjoy!&amp;quot;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
