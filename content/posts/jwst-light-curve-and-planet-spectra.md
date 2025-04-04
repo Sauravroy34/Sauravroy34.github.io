@@ -18,10 +18,10 @@ Datasets was gathered from James webb telescope NIRSpec instrument which was in 
 
 project is made in jupyter notebook and here are some of the intresting plots
 #### Light curve and poission regression fit
+![Screenshot from 2025-04-05 00-58-57](https://github.com/user-attachments/assets/98ce41e7-a80d-44f8-8ad1-bdd080a7919d)
 
 #### Planet spectra
-
-
+![Screenshot from 2025-04-05 00-59-26](https://github.com/user-attachments/assets/65e4a4b8-f115-4596-854e-055960f8cc59)
 
 ### finally the project repo link 
 The project can be found in my github repo [JWST-light-curve-and-Planet-spectra](https://github.com/Sauravroy34/JWST-light-curve-and-spectral-analysis)!
