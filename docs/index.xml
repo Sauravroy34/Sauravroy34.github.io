@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/</link><description>Recent content on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 16:00:58 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>My Open Source Journey</title><link>https://Sauravroy34.github.io/posts/my-open-source-journey/</link><pubDate>Fri, 04 Apr 2025 16:00:58 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/my-open-source-journey/</guid><description>&lt;h2 id="my-open-source-journey">My Open Source Journey&lt;/h2>
+&lt;p>It&amp;rsquo;s been around &lt;strong>8 months&lt;/strong> since I started contributing to &lt;strong>open source&lt;/strong>, beginning with &lt;a href="https://openastronomy.org/">OpenAstronomy&lt;/a>!&lt;/p>
+&lt;p>OpenAstronomy is an umbrella organization, and within it, I am an active contributor to:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/sunpy/sunpy">SunPy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/StingraySoftware/stingray">Stingray Software&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="an-incredible-journey-so-far">An Incredible Journey So Far&lt;/h3>
+&lt;p>This journey has been &lt;strong>amazing&lt;/strong>! I&amp;rsquo;ve had the opportunity to interact with incredible people—some are &lt;strong>researchers&lt;/strong>, some work at &lt;strong>NASA&lt;/strong> and &lt;strong>ESA&lt;/strong>, and others are &lt;strong>professors at top universities&lt;/strong>.&lt;/p>
+&lt;p>Through open source, I&amp;rsquo;ve learned &lt;strong>a lot&lt;/strong> about:&lt;/p>
+&lt;ul>
+&lt;li>Computational Astronomy&lt;/li>
+&lt;li>Coding Standards&lt;/li>
+&lt;li>Unit Testing with &lt;code>pytest&lt;/code>&lt;/li>
+&lt;li>Documentation with &lt;code>Sphinx&lt;/code>&lt;/li>
+&lt;li>Pre-commit Hooks&lt;/li>
+&lt;li>learned how to work with File formats like &lt;code>FITS&lt;/code> and &lt;code>ASDF&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>By the way i got into open source around september 2024 and journey has been amazing so far!!&lt;/p></description></item><item><title>My First Post</title><link>https://Sauravroy34.github.io/posts/my-first-post/</link><pubDate>Fri, 04 Apr 2025 15:57:50 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/my-first-post/</guid><description>&lt;p>This is my new blogging site. I will be posting my journey and experiences here. Enjoy!&amp;quot;&lt;/p></description></item></channel></rss>
