@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Saurav Kumar Roy</title>
-    <link>http://localhost:1313/</link>
+    <link>https://Sauravroy34.github.io/</link>
     <description>Recent content on Saurav Kumar Roy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Apr 2025 16:00:58 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Sauravroy34.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Open Source Journey</title>
-      <link>http://localhost:1313/posts/my-open-source-journey/</link>
+      <link>https://Sauravroy34.github.io/posts/my-open-source-journey/</link>
       <pubDate>Fri, 04 Apr 2025 16:00:58 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/my-open-source-journey/</guid>
+      <guid>https://Sauravroy34.github.io/posts/my-open-source-journey/</guid>
       <description>&lt;h2 id=&#34;my-open-source-journey&#34;&gt;My Open Source Journey&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s been around &lt;strong&gt;8 months&lt;/strong&gt; since I started contributing to &lt;strong&gt;open source&lt;/strong&gt;, beginning with &lt;a href=&#34;https://openastronomy.org/&#34;&gt;OpenAstronomy&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;OpenAstronomy is an umbrella organization, and within it, I am an active contributor to:&lt;/p&gt;
@@ -41,11 +41,11 @@
     
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>https://Sauravroy34.github.io/posts/my-first-post/</link>
       <pubDate>Fri, 04 Apr 2025 15:57:50 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;p&gt;This is my new blogging site. I will be posting my journey and experiences here. Enjoy!&amp;quot;&lt;/p&gt;
+      <guid>https://Sauravroy34.github.io/posts/my-first-post/</guid>
+      <description>&lt;p&gt;Hi I am Saurav Kumar Roy a undergrad student from Amrita Viswa Vidyapeetham Amritapuri in India and This is my new blogging site. I will be posting my journey and experiences here. Enjoy!&amp;quot;&lt;/p&gt;
 </description>
     </item>
     
