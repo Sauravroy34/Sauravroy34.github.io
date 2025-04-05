@@ -6,10 +6,36 @@
     <description>Recent content in Posts on Saurav Kumar Roy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Apr 2025 00:32:11 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 05 Apr 2025 12:40:00 +0530</lastBuildDate>
     
 	<atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC Proposal</title>
+      <link>https://Sauravroy34.github.io/posts/gsoc-proposal/</link>
+      <pubDate>Sat, 05 Apr 2025 12:40:00 +0530</pubDate>
+      
+      <guid>https://Sauravroy34.github.io/posts/gsoc-proposal/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been around 8 months since I discovered the Stingray project. My first pull request to the Stingray software involved implementing &lt;a href=&#34;https://github.com/StingraySoftware/stingray/pull/847&#34;&gt;pre-commit hooks&lt;/a&gt;, which was merged on September 30, 2024. Since then, I’ve found this package fascinating and have contributed a few more PRs.&lt;/p&gt;
+&lt;p&gt;Before this, I didn’t know about Stingray or even the role of Python in astronomy. To be honest, learning how the package works was overwhelming at first, but the journey has been incredibly rewarding. Here&amp;rsquo;s what I’ve learned so far:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The physics of black holes and X-ray binaries&lt;/li&gt;
+&lt;li&gt;How light curves and power spectra are used in analysis&lt;/li&gt;
+&lt;li&gt;Various statistical and signal processing methods like correlation and Fourier transforms&lt;/li&gt;
+&lt;li&gt;Different states of black holes and the radio jets they emit during transitions from soft to hard states (and vice versa)&lt;/li&gt;
+&lt;li&gt;Tools used in astronomy like HEASOFT&lt;/li&gt;
+&lt;li&gt;How CCDs in telescopes work, and much more&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I’m proud that I was able to learn all of this while still pursuing my B.Tech!&lt;/p&gt;
+&lt;h3 id=&#34;gsoc-project&#34;&gt;GSoC Project&lt;/h3&gt;
+&lt;p&gt;The project I&amp;rsquo;m interested in is &lt;a href=&#34;https://openastronomy.org/gsoc/gsoc2025/#/projects?project=interactive_database_for_x-ray_observations&#34;&gt;Interactive Database for X-ray Binary Observations&lt;/a&gt;, a 350-hour GSoC project. The goal is to build a catalog of black hole binaries where users can track their evolution using a &lt;a href=&#34;https://www.researchgate.net/figure/The-hardness-intensity-diagram-showing-the-added-information-gained-when-including-the_fig1_230595369#:~:text=The%20hardness%2Dintensity%20diagram%20showing%20the%20added%20information%20gained%20when,and%20darker%20to%20lower%20flux.&#34;&gt;Hardness-Intensity Diagram (HID)&lt;/a&gt;—a plot showing photon intensity and the ratio of counts across specific energy bands (e.g., [2–4 keV]/[4–12 keV]).&lt;/p&gt;
+&lt;p&gt;The database would include Fourier and timing products like light curves, power spectra, and energy spectra for each observation. Currently, most analyses focus on individual observations, which is useful for estimating spin and mass, but this project aims to provide a complete overview of a black hole&amp;rsquo;s evolution over time.&lt;/p&gt;
+&lt;h3 id=&#34;my-proposal&#34;&gt;My Proposal&lt;/h3&gt;
+&lt;p&gt;After two months of trial and error—learning, exploring, and refining—the proposal is finally ready! This is my first time writing such a detailed technical document. I plan to submit it soon, as the deadline is April 8, 2025.&lt;/p&gt;
+&lt;p&gt;Fingers crossed! Let&amp;rsquo;s hope for the best! 🙌&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>JWST Light Curve and Planet Spectra</title>
