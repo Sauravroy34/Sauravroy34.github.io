@@ -15,8 +15,8 @@ postDateFormat = "2006-1-2" # override custom date format posts.
   [[menu.main]]
     name = "Posts"
     weight = 1
-    identifier = "post"
-    url = "/post/"
+    identifier = "posts"
+    url = "/posts/"
   [[menu.main]]
     name = "Tags"
     url = "/tags/"

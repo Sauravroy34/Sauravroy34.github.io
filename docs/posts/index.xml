@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 05 Apr 2025 12:40:00 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>GSoC Proposal</title><link>https://Sauravroy34.github.io/posts/gsoc-proposal/</link><pubDate>Sat, 05 Apr 2025 12:40:00 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/gsoc-proposal/</guid><description>&lt;p>It&amp;rsquo;s been around 8 months since I discovered the Stingray project. My first pull request to the Stingray software involved implementing &lt;a href="https://github.com/StingraySoftware/stingray/pull/847">pre-commit hooks&lt;/a>, which was merged on September 30, 2024. Since then, I’ve found this package fascinating and have contributed a few more PRs.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 05 Apr 2025 18:37:50 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting Up HEASOFT</title><link>https://Sauravroy34.github.io/posts/setting-up-heasoft/</link><pubDate>Sat, 05 Apr 2025 18:37:50 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/setting-up-heasoft/</guid><description>&lt;h3 id="setting-up-heasoft-a-frustrating-but-rewarding-experience">Setting Up HEASOFT: A Frustrating but Rewarding Experience&lt;/h3>
+&lt;p>First of all, I had no idea that setting up HEASOFT would be &lt;em>so&lt;/em> painful. The official documentation didn’t help much, and I needed HEASOFT for my GSoC project with Stingray, where it’s used for Level 1 data processing.&lt;/p>
+&lt;h3 id="what-is-heasoft">What is HEASOFT?&lt;/h3>
+&lt;p>HEASoft (High Energy Astrophysics Software) is a unified package that includes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>FTOOLS&lt;/strong>: Tools to manipulate FITS files, both general-purpose and mission-specific.&lt;/li>
+&lt;li>&lt;strong>XANADU&lt;/strong>: A set of high-level, multi-mission tasks for analyzing X-ray spectral, timing, and imaging data.&lt;/li>
+&lt;/ul>
+&lt;p>and lot more !!!
+It bundles everything you need to work with X-ray astronomical data. You can download either the source code or precompiled executables depending on your system. It even has a web-based interface called &lt;a href="https://heasarc.gsfc.nasa.gov/docs/sciserver/">sciserver&lt;/a>!.&lt;/p>
+&lt;h3 id="how-i-finally-got-heasoft-to-work">How I Finally Got HEASOFT to Work&lt;/h3>
+&lt;p>The official documentation didn’t really help me much, so I had to hunt around online. Thankfully, I found an amazing YouTube channel: &lt;a href="https://www.youtube.com/@nspace-cowboy">Nick Space Cowboy&lt;/a>! He has a complete, step-by-step guide on installing HEASOFT, and following it made the process &lt;em>so&lt;/em> much easier.&lt;/p>
+&lt;p>It took about an hour to fully install everything, and to my surprise, he also had tutorials on analyzing NICER data, which is super helpful for my project.&lt;/p>
+&lt;p>So far, I’ve managed to:&lt;/p>
+&lt;ul>
+&lt;li>Set up HEASOFT successfully&lt;/li>
+&lt;li>Configure the NICER CALDB (Calibration Database)&lt;/li>
+&lt;li>Add geomagnetic files required for preprocessing&lt;/li>
+&lt;/ul>
+&lt;p>If you&amp;rsquo;re struggling like I was, I &lt;em>highly&lt;/em> recommend checking out Nick’s channel. It might save you hours of frustration.&lt;/p></description></item><item><title>GSoC Proposal</title><link>https://Sauravroy34.github.io/posts/gsoc-proposal/</link><pubDate>Sat, 05 Apr 2025 12:40:00 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/gsoc-proposal/</guid><description>&lt;p>It&amp;rsquo;s been around 8 months since I discovered the Stingray project. My first pull request to the Stingray software involved implementing &lt;a href="https://github.com/StingraySoftware/stingray/pull/847">pre-commit hooks&lt;/a>, which was merged on September 30, 2024. Since then, I’ve found this package fascinating and have contributed a few more PRs.&lt;/p>
 &lt;p>Before this, I didn’t know about Stingray or even the role of Python in astronomy. To be honest, learning how the package works was overwhelming at first, but the journey has been incredibly rewarding. Here&amp;rsquo;s what I’ve learned so far:&lt;/p>
 &lt;ul>
 &lt;li>The physics of black holes and X-ray binaries&lt;/li>
