@@ -18,8 +18,9 @@ postDateFormat = "2006-1-2" # override custom date format posts.
     identifier = "posts"
     url = "/posts/"
   [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
+    name = "CV"
+    url = "https://drive.google.com/file/d/1Tlu8Qvf5d3DaoutdyLBGCGksnY-yFqBM/view?usp=sharing"
+    identifier = "CV"
     weight = 2
 
 [params.social]
