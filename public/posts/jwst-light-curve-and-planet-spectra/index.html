@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
@@ -68,7 +68,7 @@
 				});
 			}
 			s.parentNode.insertBefore(o, s);
-		})('https:\/\/Sauravroy34.github.io\/lib\/pangu.min.js', function () {
+		})('http:\/\/localhost:1313\/lib\/pangu.min.js', function () {
 			pangu.spacingPage();
 		});
 	</script>
@@ -85,7 +85,7 @@
 				
 <div>
 	<h2>
-		<a href="https://Sauravroy34.github.io/" title="Saurav Kumar Roy" class="heading font-cursive icon">Saurav Kumar Roy</a>
+		<a href="http://localhost:1313/" title="Saurav Kumar Roy" class="heading font-cursive icon">Saurav Kumar Roy</a>
 	</h2>
 </div>
 <h1 class="pt-2">JWST Light Curve and Planet Spectra</h1>
@@ -132,8 +132,30 @@ Learn more about this method <a href="https://en.wikipedia.org/wiki/Methods_of_d
 <p>The project was done entirely in a <strong>Jupyter Notebook</strong>, and here are some of the interesting visualizations I generated:</p>
 <h4 id="light-curve-and-poisson-regression-fit">Light Curve and Poisson Regression Fit</h4>
 <p><img src="https://github.com/user-attachments/assets/98ce41e7-a80d-44f8-8ad1-bdd080a7919d" alt="Light Curve Plot"></p>
-<h4 id="planet-spectra">Planet Spectra</h4>
-<p><img src="https://github.com/user-attachments/assets/65e4a4b8-f115-4596-854e-055960f8cc59" alt="Spectra Plot"></p>
+<h2 id="transmission-spectroscopy">Transmission Spectroscopy</h2>
+<p>When a planet transits, some starlight passes through its atmosphere. Different wavelengths of light are absorbed by atmospheric molecules, causing variations in the transit depth. Plotting these variations against wavelength produces a transmission spectrum, which reveals details about the atmosphere’s composition. For a clear explanation, watch this <a href="https://www.youtube.com/watch?v=ZnLg4YFMfDQ&amp;ab_channel=MartianColonist">video</a>.</p>
+<h3 id="transmission-spectrum-of-wasp-39b">Transmission Spectrum of WASP-39b</h3>
+<p><img src="https://github.com/user-attachments/assets/66baeb9c-f64f-4c27-a1e9-f8a0d4cc22d4" alt="Transmission Spectrum"></p>
+<p>The spectrum above shows how WASP-39b’s atmosphere affects light at different wavelengths.</p>
+<h2 id="detecting-atmospheric-composition">Detecting Atmospheric Composition</h2>
+<p>To determine the atmospheric composition, we use atmospheric retrieval. This involves comparing observed data to model spectra generated with known compositions. The model that best fits the data indicates the likely atmospheric makeup. For more insights, refer to this <a href="https://www.youtube.com/watch?v=ZnLg4YFMfDQ&amp;ab_channel=MartianColonist">video</a>.</p>
+<p><img src="https://github.com/user-attachments/assets/5efc277a-e584-465d-a986-0e71490eb463" alt="Model Fit"></p>
+<h2 id="composition-of-wasp-39bs-atmosphere">Composition of WASP-39b’s Atmosphere</h2>
+<p>As a hot Jupiter, WASP-39b is expected to contain gases like methane and carbon dioxide. Analysis confirms the presence of water, sulfur dioxide, methane, and carbon dioxide. A distinct bump in the transmission spectrum between 4–5 µm confirms carbon dioxide.</p>
+<p><img src="https://github.com/user-attachments/assets/e8355d1c-d8f0-4439-9119-03fb3b6278e4" alt="Molecular Contributions"></p>
+<h2 id="pressure-temperature-profile">Pressure-Temperature Profile</h2>
+<p>The retrieval process assumes a <a href="https://www.aanda.org/articles/aa/pdf/2010/12/aa13396-09.pdf">Guillot pressure-temperature profile</a> to model the atmosphere’s temperature structure.</p>
+<p><img src="https://github.com/user-attachments/assets/dcdc5ea5-c144-445e-8c7c-2e1c59e9e020" alt="Pressure-Temperature Profile"></p>
+<h2 id="molecular-abundance">Molecular Abundance</h2>
+<p>The abundance of molecules like water, methane, carbon dioxide, and sulfur dioxide varies with atmospheric pressure, as shown below.</p>
+<p><img src="https://github.com/user-attachments/assets/c709a606-6ba8-4fbd-9932-38365baae326" alt="Pressure vs. Abundance"></p>
+<p>The transmission spectrum highlights specific absorption features for each molecule.</p>
+<p><img src="https://github.com/user-attachments/assets/af1bfc59-19cb-4ed1-849d-48ad3108ddeb" alt="Chemical Lines"></p>
+<p>REEFRENCES:</p>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=ZnLg4YFMfDQ">https://www.youtube.com/watch?v=ZnLg4YFMfDQ</a></li>
+<li><a href="https://petitradtrans.readthedocs.io/en/latest/">https://petitradtrans.readthedocs.io/en/latest/</a></li>
+</ol>
 <hr>
 <h3 id="project-repository">Project Repository</h3>
 <p>You can check out the complete code and analysis on GitHub:<br>
@@ -162,7 +184,7 @@ Learn more about this method <a href="https://en.wikipedia.org/wiki/Methods_of_d
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="https://drive.google.com/file/d/1tTQXHwrgPaHgg4Lh8vUXPvQKC0xhRlUB/view?usp=sharing" title="CV page" >
+		<a href="https://drive.google.com/file/d/1ac4SIS-5g3FElfrMhr9F6QUAIjIHYvlt/view?usp=sharing" title="CV page" >
 			CV
 		</a>
 	</li>
@@ -229,7 +251,7 @@ Learn more about this method <a href="https://en.wikipedia.org/wiki/Methods_of_d
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 426 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 627 words in this page.
 	</div>
 </div>
 

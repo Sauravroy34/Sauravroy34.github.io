@@ -53,8 +53,30 @@ Learn more about this method &lt;a href="https://en.wikipedia.org/wiki/Methods_o
 &lt;p>The project was done entirely in a &lt;strong>Jupyter Notebook&lt;/strong>, and here are some of the interesting visualizations I generated:&lt;/p>
 &lt;h4 id="light-curve-and-poisson-regression-fit">Light Curve and Poisson Regression Fit&lt;/h4>
 &lt;p>&lt;img src="https://github.com/user-attachments/assets/98ce41e7-a80d-44f8-8ad1-bdd080a7919d" alt="Light Curve Plot">&lt;/p>
-&lt;h4 id="planet-spectra">Planet Spectra&lt;/h4>
-&lt;p>&lt;img src="https://github.com/user-attachments/assets/65e4a4b8-f115-4596-854e-055960f8cc59" alt="Spectra Plot">&lt;/p>
+&lt;h2 id="transmission-spectroscopy">Transmission Spectroscopy&lt;/h2>
+&lt;p>When a planet transits, some starlight passes through its atmosphere. Different wavelengths of light are absorbed by atmospheric molecules, causing variations in the transit depth. Plotting these variations against wavelength produces a transmission spectrum, which reveals details about the atmosphere’s composition. For a clear explanation, watch this &lt;a href="https://www.youtube.com/watch?v=ZnLg4YFMfDQ&amp;amp;ab_channel=MartianColonist">video&lt;/a>.&lt;/p>
+&lt;h3 id="transmission-spectrum-of-wasp-39b">Transmission Spectrum of WASP-39b&lt;/h3>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/66baeb9c-f64f-4c27-a1e9-f8a0d4cc22d4" alt="Transmission Spectrum">&lt;/p>
+&lt;p>The spectrum above shows how WASP-39b’s atmosphere affects light at different wavelengths.&lt;/p>
+&lt;h2 id="detecting-atmospheric-composition">Detecting Atmospheric Composition&lt;/h2>
+&lt;p>To determine the atmospheric composition, we use atmospheric retrieval. This involves comparing observed data to model spectra generated with known compositions. The model that best fits the data indicates the likely atmospheric makeup. For more insights, refer to this &lt;a href="https://www.youtube.com/watch?v=ZnLg4YFMfDQ&amp;amp;ab_channel=MartianColonist">video&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/5efc277a-e584-465d-a986-0e71490eb463" alt="Model Fit">&lt;/p>
+&lt;h2 id="composition-of-wasp-39bs-atmosphere">Composition of WASP-39b’s Atmosphere&lt;/h2>
+&lt;p>As a hot Jupiter, WASP-39b is expected to contain gases like methane and carbon dioxide. Analysis confirms the presence of water, sulfur dioxide, methane, and carbon dioxide. A distinct bump in the transmission spectrum between 4–5 µm confirms carbon dioxide.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/e8355d1c-d8f0-4439-9119-03fb3b6278e4" alt="Molecular Contributions">&lt;/p>
+&lt;h2 id="pressure-temperature-profile">Pressure-Temperature Profile&lt;/h2>
+&lt;p>The retrieval process assumes a &lt;a href="https://www.aanda.org/articles/aa/pdf/2010/12/aa13396-09.pdf">Guillot pressure-temperature profile&lt;/a> to model the atmosphere’s temperature structure.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/dcdc5ea5-c144-445e-8c7c-2e1c59e9e020" alt="Pressure-Temperature Profile">&lt;/p>
+&lt;h2 id="molecular-abundance">Molecular Abundance&lt;/h2>
+&lt;p>The abundance of molecules like water, methane, carbon dioxide, and sulfur dioxide varies with atmospheric pressure, as shown below.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/c709a606-6ba8-4fbd-9932-38365baae326" alt="Pressure vs. Abundance">&lt;/p>
+&lt;p>The transmission spectrum highlights specific absorption features for each molecule.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/af1bfc59-19cb-4ed1-849d-48ad3108ddeb" alt="Chemical Lines">&lt;/p>
+&lt;p>REEFRENCES:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=ZnLg4YFMfDQ">https://www.youtube.com/watch?v=ZnLg4YFMfDQ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://petitradtrans.readthedocs.io/en/latest/">https://petitradtrans.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;/ol>
 &lt;hr>
 &lt;h3 id="project-repository">Project Repository&lt;/h3>
 &lt;p>You can check out the complete code and analysis on GitHub:&lt;br>

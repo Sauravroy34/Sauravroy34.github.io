@@ -41,10 +41,48 @@ The project was done entirely in a **Jupyter Notebook**, and here are some of th
 
 #### Light Curve and Poisson Regression Fit
 ![Light Curve Plot](https://github.com/user-attachments/assets/98ce41e7-a80d-44f8-8ad1-bdd080a7919d)
+## Transmission Spectroscopy
 
-#### Planet Spectra
-![Spectra Plot](https://github.com/user-attachments/assets/65e4a4b8-f115-4596-854e-055960f8cc59)
+When a planet transits, some starlight passes through its atmosphere. Different wavelengths of light are absorbed by atmospheric molecules, causing variations in the transit depth. Plotting these variations against wavelength produces a transmission spectrum, which reveals details about the atmosphere’s composition. For a clear explanation, watch this [video](https://www.youtube.com/watch?v=ZnLg4YFMfDQ&ab_channel=MartianColonist).
 
+### Transmission Spectrum of WASP-39b
+
+![Transmission Spectrum](https://github.com/user-attachments/assets/66baeb9c-f64f-4c27-a1e9-f8a0d4cc22d4)
+
+
+The spectrum above shows how WASP-39b’s atmosphere affects light at different wavelengths.
+
+## Detecting Atmospheric Composition
+
+To determine the atmospheric composition, we use atmospheric retrieval. This involves comparing observed data to model spectra generated with known compositions. The model that best fits the data indicates the likely atmospheric makeup. For more insights, refer to this [video](https://www.youtube.com/watch?v=ZnLg4YFMfDQ&ab_channel=MartianColonist).
+
+![Model Fit](https://github.com/user-attachments/assets/5efc277a-e584-465d-a986-0e71490eb463)
+
+## Composition of WASP-39b’s Atmosphere
+
+As a hot Jupiter, WASP-39b is expected to contain gases like methane and carbon dioxide. Analysis confirms the presence of water, sulfur dioxide, methane, and carbon dioxide. A distinct bump in the transmission spectrum between 4–5 µm confirms carbon dioxide.
+
+![Molecular Contributions](https://github.com/user-attachments/assets/e8355d1c-d8f0-4439-9119-03fb3b6278e4)
+
+## Pressure-Temperature Profile
+
+The retrieval process assumes a [Guillot pressure-temperature profile](https://www.aanda.org/articles/aa/pdf/2010/12/aa13396-09.pdf) to model the atmosphere’s temperature structure.
+
+![Pressure-Temperature Profile](https://github.com/user-attachments/assets/dcdc5ea5-c144-445e-8c7c-2e1c59e9e020)
+
+## Molecular Abundance
+
+The abundance of molecules like water, methane, carbon dioxide, and sulfur dioxide varies with atmospheric pressure, as shown below.
+
+![Pressure vs. Abundance](https://github.com/user-attachments/assets/c709a606-6ba8-4fbd-9932-38365baae326)
+
+The transmission spectrum highlights specific absorption features for each molecule.
+
+![Chemical Lines](https://github.com/user-attachments/assets/af1bfc59-19cb-4ed1-849d-48ad3108ddeb)
+
+REEFRENCES:
+1) https://www.youtube.com/watch?v=ZnLg4YFMfDQ
+2) https://petitradtrans.readthedocs.io/en/latest/
 ---
 
 ### Project Repository
