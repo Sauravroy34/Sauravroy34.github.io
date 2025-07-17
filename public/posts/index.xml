@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Saurav Kumar Roy</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://Sauravroy34.github.io/posts/</link>
     <description>Recent content in Posts on Saurav Kumar Roy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Apr 2025 18:37:50 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting Up HEASOFT</title>
-      <link>http://localhost:1313/posts/setting-up-heasoft/</link>
+      <link>https://Sauravroy34.github.io/posts/setting-up-heasoft/</link>
       <pubDate>Sat, 05 Apr 2025 18:37:50 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/setting-up-heasoft/</guid>
+      <guid>https://Sauravroy34.github.io/posts/setting-up-heasoft/</guid>
       <description>&lt;h3 id=&#34;setting-up-heasoft-a-frustrating-but-rewarding-experience&#34;&gt;Setting Up HEASOFT: A Frustrating but Rewarding Experience&lt;/h3&gt;
 &lt;p&gt;First of all, I had no idea that setting up HEASOFT would be &lt;em&gt;so&lt;/em&gt; painful. The official documentation didn’t help much, and I needed HEASOFT for my GSoC project with Stingray, where it’s used for Level 1 data processing.&lt;/p&gt;
 &lt;h3 id=&#34;what-is-heasoft&#34;&gt;What is HEASOFT?&lt;/h3&gt;
@@ -42,10 +42,10 @@ It bundles everything you need to work with X-ray astronomical data. You can dow
     
     <item>
       <title>GSoC Proposal</title>
-      <link>http://localhost:1313/posts/gsoc-proposal/</link>
+      <link>https://Sauravroy34.github.io/posts/gsoc-proposal/</link>
       <pubDate>Sat, 05 Apr 2025 12:40:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/gsoc-proposal/</guid>
+      <guid>https://Sauravroy34.github.io/posts/gsoc-proposal/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been around 8 months since I discovered the Stingray project. My first pull request to the Stingray software involved implementing &lt;a href=&#34;https://github.com/StingraySoftware/stingray/pull/847&#34;&gt;pre-commit hooks&lt;/a&gt;, which was merged on September 30, 2024. Since then, I’ve found this package fascinating and have contributed a few more PRs.&lt;/p&gt;
 &lt;p&gt;Before this, I didn’t know about Stingray or even the role of Python in astronomy. To be honest, learning how the package works was overwhelming at first, but the journey has been incredibly rewarding. Here&amp;rsquo;s what I’ve learned so far:&lt;/p&gt;
 &lt;ul&gt;
@@ -68,10 +68,10 @@ It bundles everything you need to work with X-ray astronomical data. You can dow
     
     <item>
       <title>JWST Light Curve and Planet Spectra</title>
-      <link>http://localhost:1313/posts/jwst-light-curve-and-planet-spectra/</link>
+      <link>https://Sauravroy34.github.io/posts/jwst-light-curve-and-planet-spectra/</link>
       <pubDate>Sat, 05 Apr 2025 00:32:11 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/jwst-light-curve-and-planet-spectra/</guid>
+      <guid>https://Sauravroy34.github.io/posts/jwst-light-curve-and-planet-spectra/</guid>
       <description>&lt;h3 id=&#34;wasp-39b-light-curve-and-planet-spectra&#34;&gt;WASP-39b Light Curve and Planet Spectra&lt;/h3&gt;
 &lt;p&gt;Recently, I worked on a cool project where I plotted the light curve of the star &lt;strong&gt;WASP-39&lt;/strong&gt;, during which its exoplanet — the hot Jupiter &lt;strong&gt;WASP-39b&lt;/strong&gt; — was also observed. According to &lt;a href=&#34;https://exoplanetarchive.ipac.caltech.edu/overview/WASP-39#planet_WASP-39-b_collapsible&#34;&gt;NASA&amp;rsquo;s exoplanet archive&lt;/a&gt;, WASP-39b has about &lt;strong&gt;0.28 times the mass of Jupiter&lt;/strong&gt; and a &lt;strong&gt;radius 1.27 times that of Jupiter&lt;/strong&gt; (~91,000 km).&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s a hot gas giant with a scorching temperature of around &lt;strong&gt;900 °C&lt;/strong&gt;. The planet orbits very close to its host star (about &lt;strong&gt;7 million km away&lt;/strong&gt;) and completes one orbit in just &lt;strong&gt;4 days&lt;/strong&gt;.&lt;/p&gt;
@@ -125,10 +125,10 @@ Learn more about this method &lt;a href=&#34;https://en.wikipedia.org/wiki/Metho
     
     <item>
       <title>My Open Source Journey</title>
-      <link>http://localhost:1313/posts/my-open-source-journey/</link>
+      <link>https://Sauravroy34.github.io/posts/my-open-source-journey/</link>
       <pubDate>Fri, 04 Apr 2025 16:00:58 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/my-open-source-journey/</guid>
+      <guid>https://Sauravroy34.github.io/posts/my-open-source-journey/</guid>
       <description>&lt;h2 id=&#34;my-open-source-journey&#34;&gt;My Open Source Journey&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s been around &lt;strong&gt;8 months&lt;/strong&gt; since I started contributing to &lt;strong&gt;open source&lt;/strong&gt;, beginning with &lt;a href=&#34;https://openastronomy.org/&#34;&gt;OpenAstronomy&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;OpenAstronomy is an umbrella organization, and within it, I am an active contributor to:&lt;/p&gt;
@@ -153,10 +153,10 @@ Learn more about this method &lt;a href=&#34;https://en.wikipedia.org/wiki/Metho
     
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>https://Sauravroy34.github.io/posts/my-first-post/</link>
       <pubDate>Fri, 04 Apr 2025 15:57:50 +0530</pubDate>
       
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <guid>https://Sauravroy34.github.io/posts/my-first-post/</guid>
       <description>&lt;p&gt;Hi I am Saurav Kumar Roy a undergrad student from Amrita Viswa Vidyapeetham Amritapuri in India and This is my new blogging site. I will be posting my journey and experiences here. Enjoy!&amp;quot;&lt;/p&gt;
 </description>
     </item>
