@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 28 Aug 2025 22:18:14 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>MolGAN</title><link>https://Sauravroy34.github.io/posts/molgan/</link><pubDate>Thu, 28 Aug 2025 22:18:14 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/molgan/</guid><description>&lt;h3 id="molgan-a-genrative-adversal-network-for-small-molecular-graph">MolGan a Genrative adversal network for small molecular graph&lt;/h3>
 &lt;p>Recently i worked on a project where i implemented MolGan from scratch in pytorch Molgan which based on WGAN uses graph data and also it has also has a reinforcement learning objective objective that guides the model to generate molecules with specific desired properties, such as high solubility or synthesizability&lt;/p>
 &lt;h3 id="model-architecture">Model architecture&lt;/h3>
-&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a" alt="model">&lt;/p>
 &lt;p>The MolGAN architecture has three main parts: a generator, a discriminator, and a reward network.&lt;/p>
 &lt;p>Generator: This network takes a random noise vector and transforms it into a molecular graph. It uses a Multi-Layer Perceptron (MLP) to simultaneously produce an adjacency matrix (A) for chemical bonds and a feature matrix (X) for atom types. Since these are initially probabilities, the model uses categorical sampling to make them discrete, representing a unique molecule.&lt;/p>
 &lt;p>Discriminator: The discriminator&amp;rsquo;s job is to tell the difference between a real molecule from the training data and a fake one created by the generator. It uses a Relational Graph Convolutional Network (R-GCN) to understand the graph structure and predicts whether the input molecule is real or fake.&lt;/p>
 &lt;p>Reward Network: This network is the key to the reinforcement learning part. It has the same architecture as the discriminator but is used to assess the quality of the generated molecules based on a specific property, like solubility. It provides a &amp;ldquo;reward&amp;rdquo; signal to the generator, encouraging it to create molecules that score higher on this property.&lt;/p>
 &lt;p>The discriminator and reward network have the same architectures and receive graphs as inputs. A Relational-GCN and MLPs are used to produce the singular output&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/08dae9d6-48a9-40ee-a078-bcfeaa4f6984" alt="loss">
+MolGAN is based on a type of GAN called a Wasserstein GAN (WGAN), which is known for its stable training. The model uses a custom loss function that combines the WGAN loss with a reinforcement learning objective.&lt;/p>
 &lt;h3 id="output">Output&lt;/h3>
 &lt;h2 id="pure-rl-lamda--0">Pure Rl (lamda = 0)&lt;/h2>
-&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/68912747-24fc-4674-8bf5-9cee079cbb49" alt="pure">&lt;/p>
 &lt;h2 id="mixture-of-wgan-and-rl-lambda--05">Mixture of WGAN and RL (lambda = 0.5)&lt;/h2>
-&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/455a0340-b58d-456f-8425-e099b4f47052" alt="Mix">&lt;/p>
 &lt;p>github: &lt;a href="https://github.com/Sauravroy34/Molgan">https://github.com/Sauravroy34/Molgan&lt;/a>&lt;/p></description></item><item><title>Setting Up HEASOFT</title><link>https://Sauravroy34.github.io/posts/setting-up-heasoft/</link><pubDate>Sat, 05 Apr 2025 18:37:50 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/setting-up-heasoft/</guid><description>&lt;h3 id="setting-up-heasoft-a-frustrating-but-rewarding-experience">Setting Up HEASOFT: A Frustrating but Rewarding Experience&lt;/h3>
 &lt;p>First of all, I had no idea that setting up HEASOFT would be &lt;em>so&lt;/em> painful. The official documentation didn’t help much, and I needed HEASOFT for my GSoC project with Stingray, where it’s used for Level 1 data processing.&lt;/p>
 &lt;h3 id="what-is-heasoft">What is HEASOFT?&lt;/h3>

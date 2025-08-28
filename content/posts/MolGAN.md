@@ -7,7 +7,7 @@ description = "Implenting MolGan from scratch using PyTorch"
 Recently i worked on a project where i implemented MolGan from scratch in pytorch Molgan which based on WGAN uses graph data and also it has also has a reinforcement learning objective objective that guides the model to generate molecules with specific desired properties, such as high solubility or synthesizability
 
 ### Model architecture
-<img width="1140" height="363" alt="download" src="https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a" />
+![model](https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a)
 
 The MolGAN architecture has three main parts: a generator, a discriminator, and a reward network.
 
@@ -19,16 +19,15 @@ Reward Network: This network is the key to the reinforcement learning part. It h
 
 The discriminator and reward network have the same architectures and receive graphs as inputs. A Relational-GCN and MLPs are used to produce the singular output
 
-<img width="364" height="85" alt="Screenshot from 2025-08-28 22-36-14" src="https://github.com/user-attachments/assets/08dae9d6-48a9-40ee-a078-bcfeaa4f6984" />
+![loss](https://github.com/user-attachments/assets/08dae9d6-48a9-40ee-a078-bcfeaa4f6984)
 MolGAN is based on a type of GAN called a Wasserstein GAN (WGAN), which is known for its stable training. The model uses a custom loss function that combines the WGAN loss with a reinforcement learning objective.
 
 ### Output 
 ## Pure Rl (lamda = 0)
-<img width="1250" height="250" alt="output_2" src="https://github.com/user-attachments/assets/68912747-24fc-4674-8bf5-9cee079cbb49" />
+![pure](https://github.com/user-attachments/assets/68912747-24fc-4674-8bf5-9cee079cbb49)
 
 
 ## Mixture of WGAN and RL (lambda = 0.5)
-<img width="1250" height="250" alt="output_0 5_lambda" src="https://github.com/user-attachments/assets/455a0340-b58d-456f-8425-e099b4f47052" />
-
+![Mix](https://github.com/user-attachments/assets/455a0340-b58d-456f-8425-e099b4f47052)
 
 github: https://github.com/Sauravroy34/Molgan
