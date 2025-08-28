@@ -6,7 +6,8 @@ description = "Implenting MolGan from scratch using PyTorch"
 ### MolGan a Genrative adversal network for small molecular graph 
 Recently i worked on a project where i implemented MolGan from scratch in pytorch Molgan which based on WGAN uses graph data and also it has also has a reinforcement learning objective objective that guides the model to generate molecules with specific desired properties, such as high solubility or synthesizability
 
-### Model arhcitecture
+### Model architecture
+<img width="1140" height="363" alt="download" src="https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a" />
 
 
 The architecture consists of 3 main sections: a generator, a discriminator, and a reward network.
