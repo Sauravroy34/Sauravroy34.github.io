@@ -9,23 +9,26 @@ Recently i worked on a project where i implemented MolGan from scratch in pytorc
 ### Model architecture
 <img width="1140" height="363" alt="download" src="https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a" />
 
+The MolGAN architecture has three main parts: a generator, a discriminator, and a reward network.
 
-The architecture consists of 3 main sections: a generator, a discriminator, and a reward network.
+Generator: This network takes a random noise vector and transforms it into a molecular graph. It uses a Multi-Layer Perceptron (MLP) to simultaneously produce an adjacency matrix (A) for chemical bonds and a feature matrix (X) for atom types. Since these are initially probabilities, the model uses categorical sampling to make them discrete, representing a unique molecule.
 
-The generator takes a sample (z) from a standard normal distribution to generate a graph using an MLP (this limits the network to a fixed maximum size) to generate the graph at once. Specifically a dense adjacency tensor A (bond types) and an annotation matrix X (atom types) are produced. Since these are probabilities, a discrete, sparse x and a are generated through categorical sampling.
+Discriminator: The discriminator's job is to tell the difference between a real molecule from the training data and a fake one created by the generator. It uses a Relational Graph Convolutional Network (R-GCN) to understand the graph structure and predicts whether the input molecule is real or fake.
+
+Reward Network: This network is the key to the reinforcement learning part. It has the same architecture as the discriminator but is used to assess the quality of the generated molecules based on a specific property, like solubility. It provides a "reward" signal to the generator, encouraging it to create molecules that score higher on this property.
 
 The discriminator and reward network have the same architectures and receive graphs as inputs. A Relational-GCN and MLPs are used to produce the singular output
 
-Overall this model is based on WGAN which has an additional rl component hence it has a custom loss function which is given by
 <img width="364" height="85" alt="Screenshot from 2025-08-28 22-36-14" src="https://github.com/user-attachments/assets/08dae9d6-48a9-40ee-a078-bcfeaa4f6984" />
-
+MolGAN is based on a type of GAN called a Wasserstein GAN (WGAN), which is known for its stable training. The model uses a custom loss function that combines the WGAN loss with a reinforcement learning objective.
 
 ### Output 
-## Pure Rl lamda = 0
-![purerl]
+## Pure Rl (lamda = 0)
+<img width="1250" height="250" alt="output_2" src="https://github.com/user-attachments/assets/68912747-24fc-4674-8bf5-9cee079cbb49" />
 
-## Mixture lambda = 0.5
 
-![mix]
+## Mixture of WGAN and RL (lambda = 0.5)
+<img width="1250" height="250" alt="output_0 5_lambda" src="https://github.com/user-attachments/assets/455a0340-b58d-456f-8425-e099b4f47052" />
 
-github:https://github.com/Sauravroy34/Molgan
+
+github: https://github.com/Sauravroy34/Molgan
