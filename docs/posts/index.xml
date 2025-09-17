@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 28 Aug 2025 22:18:14 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>MolGAN</title><link>https://Sauravroy34.github.io/posts/molgan/</link><pubDate>Thu, 28 Aug 2025 22:18:14 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/molgan/</guid><description>&lt;h3 id="molgan-a-genrative-adversal-network-for-small-molecular-graph">MolGan a Genrative adversal network for small molecular graph&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 17 Sep 2025 22:20:03 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Diffusion based poem genrator</title><link>https://Sauravroy34.github.io/posts/diffusion-based-poem-genrator/</link><pubDate>Wed, 17 Sep 2025 22:20:03 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/diffusion-based-poem-genrator/</guid><description>&lt;h1 id="diffusion-based-poem-generator-using-latent-diffusion">Diffusion-based poem generator using latent diffusion&lt;/h1>
+&lt;p>This project implements a diffusion-based text generator to create poems using latent diffusion. Poems were encoded into latent space using the BART encoder-decoder, with its parameters frozen during training to accelerate the process. However, the encoded latent space was length-dependent. To address this, a Perceiver sampler was used to convert the encoded latent space into a fixed 32x64 representation, which was then reshaped into 32x16x4 and passed through the forward diffusion process and later for denoising using the NVIDIA Sana model. The model&amp;rsquo;s parameters were reduced to speed up training. Diffusion models were chosen due to their ability to understand patterns effectively, as discussed in&lt;a href="https://arxiv.org/pdf/2310.02557">GENERALIZATION IN DIFFUSION MODELS ARISES FROM
+GEOMETRY-ADAPTIVE HARMONIC REPRESENTATIONS&lt;/a>&lt;/p>
+&lt;h3 id="bart">Bart&lt;/h3>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/77263ece-5d35-4b2e-ae79-974988e9e683" alt="Bart">&lt;/p>
+&lt;h3 id="perceiver-sampler">Perceiver sampler&lt;/h3>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="nvida-sana">Nvida Sana&lt;/h3>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="overall-architecture">Overall architecture&lt;/h2>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="dataset">Dataset&lt;/h2>
+&lt;p>The dataset used was taken from &lt;a href="https://www.kaggle.com/datasets/michaelarman/poemsdataset">Kaggle&lt;/a> which contains two folders, both containing subfolders of poems. These poems are categorized by the form (e.g. haiku, sonnet, etc.) or topic (love, nature, joy, peace, etc.).&lt;/p>
+&lt;h3 id="step-1-finetuning-language-encoder">Step 1: Finetuning language encoder&lt;/h3>
+&lt;p>For encoding and decoding, BART was used with its parameters frozen during training to focus on learning the encoding process (using sequences of 64 tokens). The encoded latent space was then resampled using the Perceiver sampler, which mapped the samples to a 32x64 representation. This was later used to train the diffusion transformer.&lt;/p>
+&lt;h3 id="step-2-forward-diffusion-process">Step 2: Forward diffusion process&lt;/h3>
+&lt;p>Random noise was then added to the latents&lt;/p>
+&lt;h3 id="step-3-encoding-prompts">Step 3: Encoding prompts&lt;/h3>
+&lt;p>To encode prompts (SmolLm2-360M)[https://huggingface.co/HuggingFaceTB/SmolLM2-360M] was used&lt;/p>
+&lt;h3 id="step-4-training-the-nvidia-sana-model">Step 4: Training the NVIDIA Sana model&lt;/h3>
+&lt;p>Over here, NVIDIA&amp;rsquo;s Sana model was used to predict noise and denoise it. The number of parameters was reduced to ease up training&lt;!-- raw HTML omitted -->
+in diffusion.py&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>config &lt;span style="color:#f92672">=&lt;/span> SanaTransformer2DModel&lt;span style="color:#f92672">.&lt;/span>load_config(&lt;span style="color:#e6db74">&amp;#34;Efficient-Large-Model/Sana_600M_1024px_diffusers&amp;#34;&lt;/span>, subfolder&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;transformer&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;num_layers&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">12&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;num_attention_heads&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">12&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;attention_head_dim&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;cross_attention_dim&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">768&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;num_cross_attention_heads&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">12&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;cross_attention_head_dim&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config[&lt;span style="color:#e6db74">&amp;#34;caption_channels&amp;#34;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">960&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>transformer &lt;span style="color:#f92672">=&lt;/span> SanaTransformer2DModel&lt;span style="color:#f92672">.&lt;/span>from_config(config)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="example">Example&lt;/h3>
+&lt;p>prompt - romantic &lt;!-- raw HTML omitted -->
+output
+Relative to be checked, and asexualerdi nightnightnightnightfalled; I&amp;rsquo;m notingeded, and live-standstandingly, listened to listen to listen listen to everything else whileoberoberrounddoorkoombombombroundingly, while rubbing stubbordozieBee&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Pre-training languge encoder and reconstruction networks process -&amp;gt; &lt;a href="https://arxiv.org/abs/2212.09462">Latent Diffusion for Language Generation&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Forward-diffusion and noise predictions -&amp;gt; &lt;a href="https://medium.com/@geronimo7/training-a-latent-diffusion-model-from-scratch-897c7b77ece9">Training a Latent Diffusion Model From Scratch&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>NVIDIA&amp;rsquo;S SANA -&amp;gt; &lt;a href="https://arxiv.org/html/2410.10629v2">Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformers&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>BART -&amp;gt; &lt;a href="https://arxiv.org/abs/1910.13461">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Perceiver -&amp;gt; &lt;a href="https://arxiv.org/abs/2103.03206">Perceiver: General Perception with Iterative Attention&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="future-plan">Future plan&lt;/h2>
+&lt;ol>
+&lt;li>For the future, I will be increasing the token size for the language encoder (currently 64) to 416&lt;/li>
+&lt;li>Train the transformer for a larger number of epochs&lt;/li>
+&lt;li>Try incorporating &lt;a href="https://arxiv.org/abs/2505.21101">Conditional Diffusion Models with Classifier-Free Gibbs-like Guidance&lt;/a> to generate higher quality and diverse samples&lt;/li>
+&lt;/ol>
+&lt;h2 id="steps-to-train">Steps to train&lt;/h2>
+&lt;h3 id="training-the-language-encoder">Training the language encoder&lt;/h3>
+&lt;p>run &lt;code>python3 bart_latent_model.py&lt;/code>&lt;/p>
+&lt;h3 id="training-the-diffusion-model">Training the diffusion model&lt;/h3>
+&lt;p>run &lt;code>python3 diffusion.py&lt;/code>&lt;/p></description></item><item><title>MolGAN</title><link>https://Sauravroy34.github.io/posts/molgan/</link><pubDate>Thu, 28 Aug 2025 22:18:14 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/molgan/</guid><description>&lt;h3 id="molgan-a-genrative-adversal-network-for-small-molecular-graph">MolGan a Genrative adversal network for small molecular graph&lt;/h3>
 &lt;p>Recently i worked on a project where i implemented MolGan from scratch in pytorch Molgan which based on WGAN uses graph data and also it has also has a reinforcement learning objective objective that guides the model to generate molecules with specific desired properties, such as high solubility or synthesizability&lt;/p>
 &lt;h3 id="model-architecture">Model architecture&lt;/h3>
 &lt;p>&lt;img src="https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a" alt="model">&lt;/p>
