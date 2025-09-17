@@ -8,19 +8,23 @@ description = "Diffusion based text genrator"
 This project implements a diffusion-based text generator to create poems using latent diffusion. Poems were encoded into latent space using the BART encoder-decoder, with its parameters frozen during training to accelerate the process. However, the encoded latent space was length-dependent. To address this, a Perceiver sampler was used to convert the encoded latent space into a fixed 32x64 representation, which was then reshaped into 32x16x4 and passed through the forward diffusion process and later for denoising using the NVIDIA Sana model. The model's parameters were reduced to speed up training. Diffusion models were chosen due to their ability to understand patterns effectively, as discussed in[GENERALIZATION IN DIFFUSION MODELS ARISES FROM
 GEOMETRY-ADAPTIVE HARMONIC REPRESENTATIONS](https://arxiv.org/pdf/2310.02557)
 ### Bart 
-![Bart](https://github.com/user-attachments/assets/77263ece-5d35-4b2e-ae79-974988e9e683)
+
+![Bart](https://github.com/user-attachments/assets/2dc8a0d7-051d-431c-87b5-67df2c5b96e5)
 
 
 ### Perceiver sampler
-<img width="694" height="228" alt="Screenshot from 2025-09-17 21-38-21" src="https://github.com/user-attachments/assets/b6cd0897-5833-4cf5-9d34-9b49306595b8" />
+
+<img width="694" height="228" alt="Screenshot from 2025-09-17 21-38-21" src="https://github.com/user-attachments/assets/56fb4ca2-6aa1-4ae4-ac68-4fec73dd4621" />
 
 ### Nvida Sana
-<img width="1644" height="679" alt="x5" src="https://github.com/user-attachments/assets/d40baf91-3fb1-440d-b645-44fe496da352" />
+<img width="1644" height="679" alt="x5" src="https://github.com/user-attachments/assets/dc0da671-a737-4525-9ec8-86a05f0f1a1e" />
+
 
 
 ## Overall architecture 
+<img width="1052" height="425" alt="Screenshot from 2025-09-17 18-37-12" src="https://github.com/user-attachments/assets/ed47ddfd-333f-4954-8230-4247d898d191" />
 
-<img width="1052" height="425" alt="Screenshot from 2025-09-17 18-37-12" src="https://github.com/user-attachments/assets/e1327f8e-4750-4c3a-a516-db1bfbd7bbb8" />
+
 
 ## Dataset 
 The dataset used was taken from [Kaggle](https://www.kaggle.com/datasets/michaelarman/poemsdataset) which contains two folders, both containing subfolders of poems. These poems are categorized by the form (e.g. haiku, sonnet, etc.) or topic (love, nature, joy, peace, etc.).
@@ -34,7 +38,7 @@ For encoding and decoding, BART was used with its parameters frozen during train
 Random noise was then added to the latents 
 
 ### Step 3: Encoding prompts 
-To encode prompts (SmolLm2-360M)[https://huggingface.co/HuggingFaceTB/SmolLM2-360M] was used 
+To encode prompts [SmolLm2-360M](https://huggingface.co/HuggingFaceTB/SmolLM2-360M) was used 
 
 ### Step 4: Training the NVIDIA Sana model
 Over here, NVIDIA's Sana model was used to predict noise and denoise it. The number of parameters was reduced to ease up training<br>
