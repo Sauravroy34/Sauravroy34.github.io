@@ -2,7 +2,7 @@
 &lt;p>This project implements a diffusion-based text generator to create poems using latent diffusion. Poems were encoded into latent space using the BART encoder-decoder, with its parameters frozen during training to accelerate the process. However, the encoded latent space was length-dependent. To address this, a Perceiver sampler was used to convert the encoded latent space into a fixed 32x64 representation, which was then reshaped into 32x16x4 and passed through the forward diffusion process and later for denoising using the NVIDIA Sana model. The model&amp;rsquo;s parameters were reduced to speed up training. Diffusion models were chosen due to their ability to understand patterns effectively, as discussed in&lt;a href="https://arxiv.org/pdf/2310.02557">GENERALIZATION IN DIFFUSION MODELS ARISES FROM
 GEOMETRY-ADAPTIVE HARMONIC REPRESENTATIONS&lt;/a>&lt;/p>
 &lt;h3 id="bart">Bart&lt;/h3>
-&lt;p>&lt;img src="https://github.com/user-attachments/assets/77263ece-5d35-4b2e-ae79-974988e9e683" alt="Bart">&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/2dc8a0d7-051d-431c-87b5-67df2c5b96e5" alt="Bart">&lt;/p>
 &lt;h3 id="perceiver-sampler">Perceiver sampler&lt;/h3>
 &lt;!-- raw HTML omitted -->
 &lt;h3 id="nvida-sana">Nvida Sana&lt;/h3>
@@ -16,7 +16,7 @@ GEOMETRY-ADAPTIVE HARMONIC REPRESENTATIONS&lt;/a>&lt;/p>
 &lt;h3 id="step-2-forward-diffusion-process">Step 2: Forward diffusion process&lt;/h3>
 &lt;p>Random noise was then added to the latents&lt;/p>
 &lt;h3 id="step-3-encoding-prompts">Step 3: Encoding prompts&lt;/h3>
-&lt;p>To encode prompts (SmolLm2-360M)[https://huggingface.co/HuggingFaceTB/SmolLM2-360M] was used&lt;/p>
+&lt;p>To encode prompts &lt;a href="https://huggingface.co/HuggingFaceTB/SmolLM2-360M">SmolLm2-360M&lt;/a> was used&lt;/p>
 &lt;h3 id="step-4-training-the-nvidia-sana-model">Step 4: Training the NVIDIA Sana model&lt;/h3>
 &lt;p>Over here, NVIDIA&amp;rsquo;s Sana model was used to predict noise and denoise it. The number of parameters was reduced to ease up training&lt;!-- raw HTML omitted -->
 in diffusion.py&lt;/p>
