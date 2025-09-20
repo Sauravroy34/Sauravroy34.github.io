@@ -19,7 +19,7 @@ postDateFormat = "2006-1-2" # override custom date format posts.
     url = "/posts/"
   [[menu.main]]
     name = "CV"
-    url = "https://drive.google.com/file/d/1B9D3aysyp2Lq1V3tZ7MRzXV9Ho7AEUOK/view?usp=sharing"
+    url = "https://drive.google.com/file/d/1zzUcLB2P8R_Xa2lhqSephb9kvfu_5H7o/view?usp=sharing"
     identifier = "CV"
     weight = 2
 
