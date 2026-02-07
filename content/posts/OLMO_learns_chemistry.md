@@ -32,10 +32,12 @@ More details about the pre-training can be found in the repo https://github.com/
 ## Results
 
 #### Classification
-<img width="1374" height="907" alt="Classification" src="https://github.com/user-attachments/assets/8bbdb313-22e7-4b62-b83f-b3d6ca32802f" />
+<img width="1374" height="907" alt="Classification" src="https://github.com/user-attachments/assets/7d8c43ba-b723-4199-9490-844f6979d228" />
+
 
 #### Regression
-<img width="1380" height="689" alt="Regression" src="https://github.com/user-attachments/assets/49a7eb2a-68b8-43b1-98d6-7bc40ec699e8" />
+<img width="1380" height="689" alt="Regression" src="https://github.com/user-attachments/assets/ee8115f9-6f7d-488a-b141-313336cda874" />
+
 
 ## References
 
