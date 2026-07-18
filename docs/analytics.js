@@ -106,6 +106,8 @@
     capture_pageview: false,
     capture_pageleave: false,
     disable_session_recording: true,
+    disable_surveys: true,
+    advanced_disable_flags: true,
     person_profiles: "identified_only",
     persistence: "localStorage+cookie",
     defaults: "2025-05-24",

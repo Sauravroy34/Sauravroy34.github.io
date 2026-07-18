@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/</link><description>Recent content on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Feb 2026 18:21:33 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>OLMO learns chemistry</title><link>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</link><pubDate>Sat, 07 Feb 2026 18:21:33 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</guid><description>&lt;h2 id="heading">&lt;/h2>
-&lt;h1 id="olmo-learns-chemistry">OLMO learns Chemistry&lt;/h1>
-&lt;p>&lt;strong>Pre-trained Model link&lt;/strong>: &lt;a href="https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC">https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC&lt;/a>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/</link><description>Recent content on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Feb 2026 18:21:33 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>OLMO learns chemistry</title><link>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</link><pubDate>Sat, 07 Feb 2026 18:21:33 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</guid><description>&lt;p>&lt;strong>Pre-trained Model link&lt;/strong>: &lt;a href="https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC">https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC&lt;/a>&lt;/p>
 &lt;h2 id="can-a-general-llm-learn-chemistry">Can a general LLM learn chemistry?&lt;/h2>
 &lt;p>In this project, I try to find out whether a general LLM can be taught to master a specific domain (chemistry in this example).&lt;/p>
 &lt;p>I took a general LLM — &lt;strong>OLMo-7B&lt;/strong> — which was pre-trained on the &lt;strong>&lt;a href="https://arxiv.org/abs/2402.00159">DOLMA&lt;/a>&lt;/strong> dataset, and performed continued pre-training using &lt;strong>QLoRA&lt;/strong>.&lt;/p>
@@ -13,9 +11,9 @@ The model was then continued pre-training on a subset of the &lt;strong>&lt;a hr
 &lt;p>I compared the model with other available chemistry-specific transformer models and a random forest baseline. After continued pre-training, the model&amp;rsquo;s scores did improve — however, not enough to overtake some of the chemistry-specific transformer models.&lt;/p>
 &lt;p>More details about the pre-training can be found in the repo &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry">https://github.com/Sauravroy34/Teaching_LLMS_Chemistry&lt;/a>&lt;/p>
 &lt;h2 id="results">Results&lt;/h2>
-&lt;h4 id="classification">Classification&lt;/h4>
+&lt;h3 id="classification">Classification&lt;/h3>
 &lt;!-- raw HTML omitted -->
-&lt;h4 id="regression">Regression&lt;/h4>
+&lt;h3 id="regression">Regression&lt;/h3>
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="references">References&lt;/h2>
 &lt;ol>
