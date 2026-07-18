@@ -20,15 +20,20 @@ metaDescription = "Saurav Kumar Roy's notes on chemistry, artificial intelligenc
     identifier = "about"
     url = "/about/"
   [[menu.main]]
-    name = "Posts"
+    name = "Research"
     weight = 2
+    identifier = "research"
+    url = "/research/"
+  [[menu.main]]
+    name = "Posts"
+    weight = 3
     identifier = "posts"
     url = "/posts/"
   [[menu.main]]
     name = "CV"
     url = "https://drive.google.com/file/d/1u51Wccr5W_7IC8p_tIF_HVTwFgAfArxl/view?usp=sharing"
     identifier = "CV"
-    weight = 3
+    weight = 4
 
 [params.social]
 github="https://github.com/Sauravroy34"

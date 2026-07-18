@@ -32,4 +32,7 @@ So far, I’ve managed to:
 
 If you're struggling like I was, I *highly* recommend checking out Nick’s channel. It might save you hours of frustration.
 
+## Explore the research collection
+
+These HEASOFT notes are part of my wider scientific-computing work, which sits alongside my chemistry AI research. [Browse the full research collection](/research/).
 

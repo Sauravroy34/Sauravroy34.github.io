@@ -82,3 +82,7 @@ run `python3 bart_latent_model.py`
 
 ### Training the diffusion model
 run `python3 diffusion.py`
+
+## Explore the research collection
+
+This generative-model experiment sits beside my chemistry AI projects as a related study of latent representations and diffusion. [Browse the full research collection](/research/).

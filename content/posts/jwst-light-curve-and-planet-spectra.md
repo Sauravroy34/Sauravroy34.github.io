@@ -89,3 +89,7 @@ REEFRENCES:
 
 You can check out the complete code and analysis on GitHub:  
 👉 [JWST Light Curve and Planet Spectra](https://github.com/Sauravroy34/JWST-light-curve-and-spectral-analysis)
+
+## Explore the research collection
+
+This atmospheric-spectroscopy project is part of my wider scientific-computing work, which sits alongside my chemistry AI research. [Browse the full research collection](/research/).

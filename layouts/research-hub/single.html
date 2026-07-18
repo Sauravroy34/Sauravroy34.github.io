@@ -1,0 +1,103 @@
+{{ define "header" }}
+<div>
+	<h2>
+		<a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}" class="heading font-cursive icon">{{ .Site.Title }}</a>
+	</h2>
+</div>
+<h1 class="pt-2">{{ .Title }}</h1>
+{{ with .Description }}
+<p class="font-serif text-java-700 font-normal leading-relaxed pt-2">{{ . }}</p>
+{{ end }}
+<hr />
+{{ end }}
+
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "research-hub.css" | relURL }}">
+<article class="research-hub">
+	<section class="research-intro" aria-labelledby="research-intro-heading">
+		<p class="research-kicker">Research collection</p>
+		<h2 id="research-intro-heading">Building models, then testing what they learn</h2>
+		<p>My chemistry AI work asks two practical questions: can a model learn useful chemical representations, and can it generate molecular structures directly? The collection starts with those projects, then traces the generative-model and scientific-computing work around them.</p>
+		<a class="research-primary" href="{{ "/posts/olmo_learns_chemistry/" | relURL }}">Start with OLMO learns chemistry</a>
+	</section>
+
+	<section class="research-section" aria-labelledby="chemistry-ai-heading">
+		<div class="research-section-heading">
+			<p class="research-index">01</p>
+			<div>
+				<h2 id="chemistry-ai-heading">Chemistry AI</h2>
+				<p>The core projects: language models trained on chemical data and generative models that work directly with molecular graphs.</p>
+			</div>
+		</div>
+		<div class="research-feature-grid">
+			{{ range .Params.chemistry_projects }}
+			<article class="research-feature-card">
+				<a class="research-image-link" href="{{ .url | relURL }}" tabindex="-1" aria-hidden="true">
+					<img src="{{ .image }}" alt="{{ .image_alt }}" loading="lazy">
+				</a>
+				<div class="research-card-copy">
+					<p class="research-label">{{ .label }}</p>
+					<h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+					<p>{{ .summary }}</p>
+					<a class="research-text-link" href="{{ .url | relURL }}">{{ .link_label }} <span aria-hidden="true">→</span></a>
+				</div>
+			</article>
+			{{ end }}
+		</div>
+	</section>
+
+	<section class="research-section" aria-labelledby="methods-heading">
+		<div class="research-section-heading">
+			<p class="research-index">02</p>
+			<div>
+				<h2 id="methods-heading">Generative methods</h2>
+				<p>This experiment is not chemistry research. It tests an adjacent question: how diffusion can generate structured sequences in a compressed latent space.</p>
+			</div>
+		</div>
+		{{ range .Params.method_projects }}
+		<article class="research-method-card">
+			<div>
+				<p class="research-label">{{ .label }}</p>
+				<h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+			</div>
+			<div>
+				<p>{{ .summary }}</p>
+				<a class="research-text-link" href="{{ .url | relURL }}">{{ .link_label }} <span aria-hidden="true">→</span></a>
+			</div>
+		</article>
+		{{ end }}
+	</section>
+
+	<section class="research-section" aria-labelledby="science-heading">
+		<div class="research-section-heading">
+			<p class="research-index">03</p>
+			<div>
+				<h2 id="science-heading">Scientific computing</h2>
+				<p>These astronomy projects are a separate research lane. They connect the portfolio through scientific data, molecular spectroscopy, and open-source analysis tools.</p>
+			</div>
+		</div>
+		<div class="research-list">
+			{{ range .Params.science_projects }}
+			<article class="research-list-item">
+				<p class="research-label">{{ .label }}</p>
+				<h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+				<p>{{ .summary }}</p>
+				<a class="research-text-link" href="{{ .url | relURL }}">{{ .link_label }} <span aria-hidden="true">→</span></a>
+			</article>
+			{{ end }}
+		</div>
+	</section>
+
+	<section class="research-close" aria-labelledby="research-close-heading">
+		<h2 id="research-close-heading">Follow the work</h2>
+		<p>Each project note links to its code, data, or primary references where they are available. For the person behind the work, visit the author page.</p>
+		<a class="research-text-link" href="{{ "/about/" | relURL }}">About Saurav Roy <span aria-hidden="true">→</span></a>
+	</section>
+</article>
+{{ end }}
+
+{{ define "aside" }}
+	{{ partial "research-hub-aside.html" . }}
+{{ end }}
+
+{{ define "footer" }}{{ end }}

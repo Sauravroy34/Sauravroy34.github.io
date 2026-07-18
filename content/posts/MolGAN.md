@@ -85,3 +85,7 @@ The repository contains the model definitions, QM9 preprocessing script, trainin
 The code builds on the original [MolGAN paper](https://arxiv.org/abs/1805.11973) and a public [PyTorch implementation](https://github.com/kfzyqin/Implementation-MolGAN-PyTorch). Check the repository README before running it because dataset preparation and local paths may need adjustment for your environment.
 
 ## MolGAN FAQ
+
+## Explore the research collection
+
+This implementation is part of my chemistry AI research, alongside language-model training and related scientific-computing work. [Browse the full research collection](/research/).
