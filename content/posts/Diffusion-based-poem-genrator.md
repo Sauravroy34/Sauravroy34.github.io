@@ -2,6 +2,7 @@
 title = 'Diffusion based poem genrator'
 date = 2025-09-17T22:20:03+05:30
 description = "Diffusion based text genrator"
+aliases = ['/posts/diffusion_based_poem_genrator/']
 +++
 
 # Diffusion-based poem generator using latent diffusion
