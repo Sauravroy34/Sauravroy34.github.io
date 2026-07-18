@@ -1,0 +1,42 @@
+name: Verify site
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.123.7"
+          extended: true
+
+      - name: Build the published site
+        run: ./scripts/build-site.sh
+
+      - name: Check generated output is committed
+        shell: bash
+        run: |
+          changes="$(git status --short --untracked-files=all -- docs)"
+          if [[ -n "$changes" ]]; then
+            echo "The committed docs/ output does not match a clean Hugo build:"
+            printf '%s\n' "$changes"
+            git diff -- docs
+            exit 1
+          fi
+
+      - name: Check internal links and crawl signals
+        run: python3 scripts/check-site.py docs
