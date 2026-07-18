@@ -1,0 +1,8 @@
+{{- $canonical := .Permalink -}}
+{{- if .IsHome -}}
+    {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {{- $canonical = (.Paginate $pages 6).URL | absURL -}}
+{{- else if and (eq .Kind "section") (eq .Section "posts") -}}
+    {{- $canonical = (.Paginator 25).URL | absURL -}}
+{{- end -}}
+<link rel="canonical" href="{{ $canonical }}">
