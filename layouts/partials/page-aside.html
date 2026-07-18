@@ -1,0 +1,11 @@
+<div class="md:max-w-xs flex flex-col md:items-end">
+	{{ partial "site-navigation.html" . }}
+	{{ partial "social-follow.html" . }}
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		{{ .Site.Copyright | safeHTML }}
+		<br>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
+		<a href="https://tin.computer" class="tin-credit" rel="noopener"><span aria-hidden="true" style="display:inline-block;width:.75em;height:.75em;margin:0 .3em 0 .45em;background:#66DC9D;vertical-align:middle"></span>Growth by Tin</a>.
+		{{ .WordCount }} words in this page.
+	</div>
+</div>
