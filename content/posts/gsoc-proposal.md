@@ -28,3 +28,7 @@ The database would include Fourier and timing products like light curves, power 
 After two months of trial and error—learning, exploring, and refining—the proposal is finally ready! This is my first time writing such a detailed technical document. I plan to submit it soon, as the deadline is April 8, 2025.
 
 Fingers crossed! Let's hope for the best! 🙌
+
+## Explore the research collection
+
+This OpenAstronomy proposal is part of my wider scientific-computing work, which sits alongside my chemistry AI research. [Browse the full research collection](/research/).

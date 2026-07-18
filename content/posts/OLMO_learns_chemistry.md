@@ -48,3 +48,7 @@ More details about the pre-training can be found in the repo https://github.com/
 5. [DEEPCHEM](https://github.com/deepchem/deepchem)  
 6. [ChemBERTa-3](https://chemrxiv.org/doi/full/10.26434/chemrxiv-2025-4glrl-v2)
 7. [MoleculeNet](https://arxiv.org/abs/1703.00564)
+
+## Explore the research collection
+
+This project is part of my chemistry AI research, alongside molecular graph generation and related scientific-computing work. [Browse the full research collection](/research/).
