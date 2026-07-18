@@ -1,31 +1,47 @@
 +++
-title = 'Legal Ease an AI Powered legal document analyser'
-description = "Legal Ease an AI Powered legal document analyser"
+title = 'Legal Ease: AI legal document analyser'
+description = "A documented Streamlit prototype for summarising legal documents and asking follow-up questions with Gemini."
 date = 2025-10-19T23:18:09+05:30
 +++
-# Legal Ease, Your Personal legal assistant 
+# Legal Ease
 
-## Motive
-Ever felt frustrated while reading through legal documents? Or ever felt overwhelmed by the overly "formal" and boring vocabulary? Then worry not, here's a project I made, Legal Ease, a legal document summariser It's built with Gemini api, and for the UI Streamlit is used, and the project is hosted on Streamlit Cloud.It supports PDF and image, and also has a chat interface for further queries.
+Legal Ease is a Streamlit prototype for reading a PDF or image, producing a Gemini-assisted summary, and asking follow-up questions about the uploaded document. It is an experiment in making dense legal text easier to inspect, not a substitute for professional legal advice.
 
-### Project images
+## What the prototype demonstrates
 
-#### Chat interface
+- Uploading PDF, PNG, JPG, or JPEG documents
+- Generating a structured summary of parties, obligations, clauses, and risks
+- Asking follow-up questions through a document-aware chat interface
+- Selecting a Gemini model or supplying a separate Gemini API key
 
-<img width="1920" height="930" alt="Screenshot from 2025-10-19 19-53-07" src="https://github.com/user-attachments/assets/580d8035-8f2a-434d-bed3-a5ef84906e87" />
+The implementation is available in the [Legal Ease repository](https://github.com/Sauravroy34/Legal-Ease). For a fixed reference, the page also links to the [source snapshot used for this project record](https://github.com/Sauravroy34/Legal-Ease/tree/4977cd63b22195e963f1407531c7d7d259f364dd).
 
-#### An Example
+## Interface and recorded output
 
-<img width="1920" height="1048" alt="Screenshot from 2025-10-19 20-49-21" src="https://github.com/user-attachments/assets/d230df6f-3d0e-4ffe-a83a-82b615d73a8b" />
+### Upload and chat workspace
 
-#### Queries
+![Legal Ease interface with Gemini model settings, a document uploader, and a follow-up chat field](/images/legal-ease/upload-and-chat.png)
 
-<img width="1920" height="1048" alt="Screenshot from 2025-10-19 20-50-28" src="https://github.com/user-attachments/assets/0fee7777-ab83-4fd1-883f-807ecba2d353" />
+The prototype places document upload and preview on the left, with the generated summary and follow-up conversation on the right.
 
-## Project video 
-https://youtu.be/QW_96CJ20N8?si=G2dxIizoZkJlfpPO
-## Project url
-https://legal-docs-ease.streamlit.app/
+### Example document summary
 
-## github 
-https://github.com/Sauravroy34/Legal-Ease
+![Legal Ease displaying a sample loan approval letter beside a structured AI-generated summary](/images/legal-ease/document-summary.png)
+
+This recorded run shows a sample loan approval letter next to a summary organised around the parties, loan terms, obligations, and risks.
+
+### Follow-up question
+
+![Legal Ease answering a follow-up question about the consequences of defaulting on the sample loan](/images/legal-ease/follow-up-question.png)
+
+After summarisation, the chat keeps the document context so the reader can ask a narrower question about the recorded example.
+
+## Demo availability and fallback
+
+The original Streamlit deployment at `legal-docs-ease.streamlit.app` currently redirects to a Streamlit sign-in page instead of opening the app publicly. The address is recorded here for transparency, but it is not presented as a working proof link.
+
+You can inspect the working evidence without relying on that service:
+
+- [Watch the recorded project walkthrough](https://youtu.be/QW_96CJ20N8?si=G2dxIizoZkJlfpPO)
+- [Browse the implementation on GitHub](https://github.com/Sauravroy34/Legal-Ease)
+- Review the three locally hosted screenshots above
