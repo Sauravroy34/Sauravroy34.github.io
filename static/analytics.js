@@ -91,6 +91,15 @@
     return "external_reference";
   }
 
+  function sourceSection(link) {
+    if (link.closest("footer, aside[role='contentinfo']")) return "footer";
+
+    var path = window.location.pathname;
+    if (path === "/" || /^\/page\/\d+\/?$/.test(path)) return "homepage";
+    if (path === "/research/" || path === "/research") return "research_hub";
+    return "post";
+  }
+
   window.posthog.init(POSTHOG_KEY, {
     api_host: POSTHOG_HOST,
     autocapture: false,
@@ -119,6 +128,7 @@
 
       window.posthog.capture("content_link_clicked", {
         route: window.location.pathname,
+        source_section: sourceSection(link),
         target_type: "research_contact"
       });
       return;
@@ -135,6 +145,7 @@
 
     var properties = {
       route: window.location.pathname,
+      source_section: sourceSection(link),
       target_type: classifyLink(url)
     };
 
