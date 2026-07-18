@@ -1,0 +1,13 @@
+{{ $scratch := newScratch }}
+{{ range (.Site.Pages) }}{{ $scratch.Add "total" .WordCount }}{{ end }}
+<div class="md:max-w-xs flex flex-col md:items-end pt-2">
+	{{ partial "social-follow.html" . }}
+	<div class="a-gray text-sm text-gray-500 leading-tight">
+		{{ .Site.Copyright | safeHTML }}
+		<br>
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
+		<a href="https://tin.computer" class="tin-credit" rel="noopener"><span aria-hidden="true" style="display:inline-block;width:.75em;height:.75em;margin:0 .3em 0 .45em;background:#66DC9D;vertical-align:middle"></span>Growth by Tin</a>.
+		<br>
+		{{ len .Site.Pages }} pages, {{ $scratch.Get "total" }} words in total.
+	</div>
+</div>
