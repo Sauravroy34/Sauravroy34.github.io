@@ -16,7 +16,7 @@ I’m **Saurav Kumar Roy**. I use this site to document hands-on work where mach
 
 ### OLMO learns chemistry
 
-I continued pre-training OLMo-7B on ZINC20 molecules and USPTO reactions, then compared the result with chemistry-specific transformer models and a random forest baseline.
+I continued pre-training OLMo-7B on the ChEMBL SMILES training split, then tested the result on MoleculeNet classification and regression tasks while documenting the limits of cross-paper comparisons.
 
 [Read the OLMO project notes](/posts/olmo_learns_chemistry/)
 

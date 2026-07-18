@@ -1,29 +1,111 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Feb 2026 18:21:33 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>OLMO learns chemistry</title><link>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</link><pubDate>Sat, 07 Feb 2026 18:21:33 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</guid><description>&lt;p>&lt;strong>Pre-trained Model link&lt;/strong>: &lt;a href="https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC">https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC&lt;/a>&lt;/p>
-&lt;h2 id="can-a-general-llm-learn-chemistry">Can a general LLM learn chemistry?&lt;/h2>
-&lt;p>In this project, I try to find out whether a general LLM can be taught to master a specific domain (chemistry in this example).&lt;/p>
-&lt;p>I took a general LLM — &lt;strong>OLMo-7B&lt;/strong> — which was pre-trained on the &lt;strong>&lt;a href="https://arxiv.org/abs/2402.00159">DOLMA&lt;/a>&lt;/strong> dataset, and performed continued pre-training using &lt;strong>QLoRA&lt;/strong>.&lt;/p>
-&lt;p>The model was benchmarked on the &lt;strong>MoleculeNet&lt;/strong> dataset (excluding some datasets like QM9 and SIDER due to their enormous size).&lt;/p>
-&lt;h2 id="continued-pre-training">Continued Pre-training&lt;/h2>
-&lt;p>&lt;strong>First step:&lt;/strong>&lt;br>
-The model was first pre-trained on a subset of the &lt;strong>&lt;a href="https://huggingface.co/datasets/zpn/zinc20">ZINC20&lt;/a>&lt;/strong> dataset. The goal was to teach the model about SMILES representation. Due to compute constraints, only a &lt;strong>10k subset&lt;/strong> could be used. The pre-training method was &lt;strong>QLoRA&lt;/strong> on Kaggle with &lt;strong>2×T4 GPUs&lt;/strong>. It took around &lt;strong>8 hours&lt;/strong> of runtime.&lt;/p>
-&lt;p>&lt;strong>Second step:&lt;/strong>&lt;br>
-The model was then continued pre-training on a subset of the &lt;strong>&lt;a href="https://huggingface.co/datasets/OpenMol/USPTO_1k_TPL-SFT">USPTO&lt;/a>&lt;/strong> reaction dataset. The goal here was — since the model had already learned some chemical structure representation (through ZINC20 pre-training) — to infuse actual chemistry knowledge into the model&amp;rsquo;s weights. Again, due to compute constraints, only a &lt;strong>10k subset&lt;/strong> was used. The method was &lt;strong>QLoRA&lt;/strong> on Kaggle with &lt;strong>2×T4 GPUs&lt;/strong>. This took around &lt;strong>9 hours&lt;/strong> of runtime.&lt;/p>
-&lt;p>I compared the model with other available chemistry-specific transformer models and a random forest baseline. After continued pre-training, the model&amp;rsquo;s scores did improve — however, not enough to overtake some of the chemistry-specific transformer models.&lt;/p>
-&lt;p>More details about the pre-training can be found in the repo &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry">https://github.com/Sauravroy34/Teaching_LLMS_Chemistry&lt;/a>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Feb 2026 18:21:33 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Teaching OLMo-7B chemistry with ChEMBL SMILES</title><link>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</link><pubDate>Sat, 07 Feb 2026 18:21:33 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</guid><description>&lt;p>Can a general language model learn representations that transfer to molecular property prediction? This project tests that question by continuing the pre-training of &lt;strong>OLMo-7B&lt;/strong> on chemical SMILES, then adapting it to a set of &lt;strong>MoleculeNet&lt;/strong> classification and regression tasks.&lt;/p>
+&lt;p>&lt;strong>Project sources:&lt;/strong> &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry">inspect the training and benchmark code&lt;/a> or &lt;a href="https://huggingface.co/Codemaster67/ChemOlmo-7b">open the ChemOlmo-7b model artifact&lt;/a>.&lt;/p>
+&lt;h2 id="what-was-trained">What was trained&lt;/h2>
+&lt;p>The current training path starts from &lt;a href="https://huggingface.co/allenai/OLMo-7B">OLMo-7B&lt;/a>, a general language model trained on the &lt;a href="https://arxiv.org/abs/2402.00159">Dolma corpus&lt;/a>. The project applies 4-bit QLoRA continued pre-training to the SMILES field in the &lt;a href="https://huggingface.co/datasets/antoinebcx/smiles-molecules-chembl">ChEMBL molecule-generation dataset&lt;/a>.&lt;/p>
+&lt;p>The inspectable configuration in &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry/blob/153366ac8b9b0d3a4b3d4bcb81947806dad14340/Chembl_2M_and_instruction/RawSmiles.py">&lt;code>RawSmiles.py&lt;/code>&lt;/a> uses NF4 quantization, LoRA rank 64, alpha 128, all linear layers as targets, a learning rate of 5e-5, and one training epoch. Sequences are truncated or padded to 256 tokens.&lt;/p>
+&lt;h3 id="corpus-scope">Corpus scope&lt;/h3>
+&lt;p>The script loads the dataset&amp;rsquo;s &lt;strong>training split&lt;/strong>. The linked dataset card currently lists &lt;strong>1,358,980 training molecules&lt;/strong> and &lt;strong>1,941,405 molecules across all three splits&lt;/strong>. The repository README describes this as 2.1 million SMILES, but that rounded figure does not match the current dataset card or a limit in the training script. I therefore use the inspectable training-split count here.&lt;/p>
+&lt;p>The repository also retains an earlier experimental route that capped &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry/blob/153366ac8b9b0d3a4b3d4bcb81947806dad14340/ZInc20_and_Upsto_pre_training_notebooks/olmo_7b_zinc20_pre_training.ipynb">ZINC20&lt;/a> and &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry/blob/153366ac8b9b0d3a4b3d4bcb81947806dad14340/ZInc20_and_Upsto_pre_training_notebooks/olmo_zinc_upsto_pre_training.ipynb">USPTO-50K&lt;/a> at 10,000 examples each. Those notebooks document an earlier model path. The results below use the current repository&amp;rsquo;s &lt;strong>ChemOlmo-7B&lt;/strong> summary plots rather than combining the two corpus descriptions.&lt;/p>
+&lt;h2 id="how-the-evaluation-works">How the evaluation works&lt;/h2>
+&lt;p>The benchmark notebooks load MoleculeNet tasks through DeepChem and use its scaffold splitter. Classification is reported as &lt;strong>ROC-AUC&lt;/strong>, where higher is better. Regression is reported as &lt;strong>root mean squared error (RMSE)&lt;/strong>, where lower is better. The current repository contains the inspectable &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry/tree/153366ac8b9b0d3a4b3d4bcb81947806dad14340/Notebooks_instruction_tuning">classification and regression notebooks&lt;/a>.&lt;/p>
+&lt;p>The comparison below is deliberately narrow: the base OLMo-7B QLoRA row and the continued-pre-training ChemOlmo-7B row from the project&amp;rsquo;s own summary figures. Other rows in the figures come from separate models or papers and are not treated as a controlled leaderboard.&lt;/p>
 &lt;h2 id="results">Results&lt;/h2>
 &lt;h3 id="classification">Classification&lt;/h3>
-&lt;!-- raw HTML omitted -->
+&lt;p>Continued pre-training improved two of the five reported classification tasks, matched the base row on two, and declined on one. The largest reported gain was on Tox21, from 0.63 to 0.72 ROC-AUC. HIV moved in the other direction, from 0.74 to 0.71.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>MoleculeNet task&lt;/th>
+&lt;th style="text-align:right">OLMo-7B QLoRA&lt;/th>
+&lt;th style="text-align:right">ChemOlmo-7B&lt;/th>
+&lt;th style="text-align:right">Change&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Tox21&lt;/td>
+&lt;td style="text-align:right">0.63&lt;/td>
+&lt;td style="text-align:right">0.72&lt;/td>
+&lt;td style="text-align:right">+0.09&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>HIV&lt;/td>
+&lt;td style="text-align:right">0.74&lt;/td>
+&lt;td style="text-align:right">0.71&lt;/td>
+&lt;td style="text-align:right">-0.03&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>BBBP&lt;/td>
+&lt;td style="text-align:right">0.71&lt;/td>
+&lt;td style="text-align:right">0.71&lt;/td>
+&lt;td style="text-align:right">0.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ClinTox&lt;/td>
+&lt;td style="text-align:right">0.99&lt;/td>
+&lt;td style="text-align:right">0.99&lt;/td>
+&lt;td style="text-align:right">0.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>BACE&lt;/td>
+&lt;td style="text-align:right">0.78&lt;/td>
+&lt;td style="text-align:right">0.84&lt;/td>
+&lt;td style="text-align:right">+0.06&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/3ab3eb65-3076-4d1f-bd5f-7fbb823e623e" alt="Classification results table comparing OLMo-7B, ChemOlmo-7B, chemistry language models, and a random forest across five MoleculeNet tasks">&lt;/p>
 &lt;h3 id="regression">Regression&lt;/h3>
-&lt;!-- raw HTML omitted -->
+&lt;p>ChemOlmo-7B recorded lower RMSE than the base OLMo-7B row on all three reported regression tasks. The changes were 0.70 to 0.47 on Lipophilicity, 0.55 to 0.49 on Delaney/ESOL, and 1.04 to 0.85 on FreeSolv.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>MoleculeNet task&lt;/th>
+&lt;th style="text-align:right">OLMo-7B QLoRA&lt;/th>
+&lt;th style="text-align:right">ChemOlmo-7B&lt;/th>
+&lt;th style="text-align:right">Change in RMSE&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Lipophilicity&lt;/td>
+&lt;td style="text-align:right">0.70&lt;/td>
+&lt;td style="text-align:right">0.47&lt;/td>
+&lt;td style="text-align:right">-0.23&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Delaney / ESOL&lt;/td>
+&lt;td style="text-align:right">0.55&lt;/td>
+&lt;td style="text-align:right">0.49&lt;/td>
+&lt;td style="text-align:right">-0.06&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>FreeSolv&lt;/td>
+&lt;td style="text-align:right">1.04&lt;/td>
+&lt;td style="text-align:right">0.85&lt;/td>
+&lt;td style="text-align:right">-0.19&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/eebaade0-6bf5-4000-a0b1-872d7788f8f2" alt="Regression results table comparing OLMo-7B, ChemOlmo-7B, chemistry language models, and a random forest across three MoleculeNet tasks">&lt;/p>
+&lt;h2 id="what-these-results-do-and-do-not-show">What these results do and do not show&lt;/h2>
+&lt;p>The results support a modest conclusion: continued pre-training on chemical SMILES improved the reported regression scores and some classification scores, but it did not produce a consistent classification gain.&lt;/p>
+&lt;blockquote>
+&lt;p>These are project-recorded results, not an independently reproduced or peer-reviewed evaluation. The repository includes notebook outputs for individual tasks, but the notebooks do not fully reproduce every rounded value in the summary figures, and the figures do not report uncertainty for the ChemOlmo row.&lt;/p>
+&lt;/blockquote>
+&lt;p>The external model rows also need care. The &lt;a href="https://doi.org/10.26434/chemrxiv-2025-4glrl-v2">ChemBERTa-3 paper&lt;/a> shows that MoLFormer scaffold splits differ from DeepChem scaffold splits and says results produced with different split algorithms cannot be compared directly. That means the MoLFormer paper row in these figures is useful context, not evidence that one model definitively ranks above another.&lt;/p>
+&lt;p>This experiment does not evaluate molecular generation, reaction prediction, QM9, or SIDER. It also does not establish state-of-the-art performance. A stronger follow-up would rerun every model under one fixed split, publish seeds and per-run scores, and generate the tables directly from saved evaluation artifacts.&lt;/p>
 &lt;h2 id="references">References&lt;/h2>
 &lt;ol>
-&lt;li>&lt;a href="https://arxiv.org/abs/2402.00159">Dolma&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry">Project repository&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://huggingface.co/Codemaster67/ChemOlmo-7b">ChemOlmo-7b model artifact&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://huggingface.co/allenai/OLMo-7B">OLMo-7B&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://huggingface.co/datasets/zpn/zinc20">ZINC20&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://huggingface.co/datasets/OpenMol/USPTO_1k_TPL-SFT">USPTO&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/deepchem/deepchem">DEEPCHEM&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://chemrxiv.org/doi/full/10.26434/chemrxiv-2025-4glrl-v2">ChemBERTa-3&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://arxiv.org/abs/2402.00159">Dolma&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://huggingface.co/datasets/antoinebcx/smiles-molecules-chembl">ChEMBL SMILES dataset&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/deepchem/deepchem">DeepChem&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://arxiv.org/abs/1703.00564">MoleculeNet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doi.org/10.26434/chemrxiv-2025-4glrl-v2">ChemBERTa-3&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://arxiv.org/abs/2106.09553">MoLFormer&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;h2 id="explore-the-research-collection">Explore the research collection&lt;/h2>
 &lt;p>This project is part of my chemistry AI research, alongside molecular graph generation and related scientific-computing work. &lt;a href="https://Sauravroy34.github.io/research/">Browse the full research collection&lt;/a>.&lt;/p></description></item><item><title>Legal Ease an AI Powered legal document analyser</title><link>https://Sauravroy34.github.io/posts/legal_ease/</link><pubDate>Sun, 19 Oct 2025 23:18:09 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/legal_ease/</guid><description>&lt;h1 id="legal-ease-your-personal-legal-assistant">Legal Ease, Your Personal legal assistant&lt;/h1>

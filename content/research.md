@@ -10,10 +10,10 @@ render = "always"
 [[chemistry_projects]]
 title = "Teaching OLMo-7B chemistry"
 label = "Language models for chemistry"
-summary = "Continued pre-training on ZINC20 molecules and USPTO reactions, followed by MoleculeNet comparisons with chemistry-specific transformers and a random forest baseline."
+summary = "Continued pre-training of OLMo-7B on the ChEMBL SMILES training split, followed by candid MoleculeNet classification and regression results with explicit evidence limits."
 url = "/posts/olmo_learns_chemistry/"
 link_label = "Read the OLMO project notes"
-image = "https://github.com/user-attachments/assets/7d8c43ba-b723-4199-9490-844f6979d228"
+image = "https://github.com/user-attachments/assets/3ab3eb65-3076-4d1f-bd5f-7fbb823e623e"
 image_alt = "Classification benchmark results from the OLMo chemistry project"
 
 [[chemistry_projects]]
