@@ -1,35 +1,87 @@
 +++
-title = 'MolGAN'
+title = 'MolGAN in PyTorch: Molecular Graph Generation from Scratch'
 date = 2025-08-28T22:18:14+05:30
-description = "Implenting MolGan from scratch using PyTorch"
+description = 'A practical guide to implementing MolGAN in PyTorch with a graph generator, R-GCN discriminator, reward network, WGAN training, and reinforcement learning.'
+
+[[faqs]]
+question = 'What is MolGAN?'
+answer = 'MolGAN is an implicit generative model that produces small molecular graphs in one step. It combines a generative adversarial network with a reinforcement-learning objective so training can balance realistic graphs with chosen molecular rewards.'
+
+[[faqs]]
+question = 'How does MolGAN represent a molecule?'
+answer = 'MolGAN represents a molecule with an adjacency tensor for bond types and a feature matrix for atom types. The generator predicts both from a random latent vector, then categorical sampling converts those probabilities into a discrete graph.'
+
+[[faqs]]
+question = 'Why use a reward network with the WGAN objective?'
+answer = 'The WGAN objective teaches the generator to resemble molecules in the training data. The reward network adds a separate signal for a selected molecular metric, and the lambda setting controls the balance between the two objectives.'
+
+[[faqs]]
+question = 'Where is the PyTorch implementation?'
+answer = 'The complete training code, model definitions, QM9 preprocessing, saved model weights, and generated samples are available in Saurav Kumar Roy’s MolGAN repository on GitHub.'
 +++
-### MolGan a Genrative adversal network for small molecular graph 
-Recently i worked on a project where i implemented MolGan from scratch in pytorch Molgan which based on WGAN uses graph data and also it has also has a reinforcement learning objective objective that guides the model to generate molecules with specific desired properties, such as high solubility or synthesizability
 
-### Model architecture
-![model](https://github.com/user-attachments/assets/fa30d70a-586f-4111-b09f-e44d9d821d1a)
+MolGAN generates a molecule as a graph: atoms become nodes, bonds become edges, and the whole structure is predicted in one pass. I implemented the model in PyTorch to make each part of that pipeline explicit, from QM9 preprocessing to the generator, discriminator, reward network, and three training-objective settings.
 
-The MolGAN architecture has three main parts: a generator, a discriminator, and a reward network.
+**[Explore the MolGAN PyTorch implementation on GitHub](https://github.com/Sauravroy34/Molgan)**
 
-Generator: This network takes a random noise vector and transforms it into a molecular graph. It uses a Multi-Layer Perceptron (MLP) to simultaneously produce an adjacency matrix (A) for chemical bonds and a feature matrix (X) for atom types. Since these are initially probabilities, the model uses categorical sampling to make them discrete, representing a unique molecule.
+## What MolGAN generates
 
-Discriminator: The discriminator's job is to tell the difference between a real molecule from the training data and a fake one created by the generator. It uses a Relational Graph Convolutional Network (R-GCN) to understand the graph structure and predicts whether the input molecule is real or fake.
+Unlike sequence models that write a molecular string token by token, MolGAN works directly with a fixed-size molecular graph. Its generator takes a random latent vector and predicts two outputs at the same time:
 
-Reward Network: This network is the key to the reinforcement learning part. It has the same architecture as the discriminator but is used to assess the quality of the generated molecules based on a specific property, like solubility. It provides a "reward" signal to the generator, encouraging it to create molecules that score higher on this property.
+- an adjacency tensor that assigns bond types between atom pairs;
+- a feature matrix that assigns an atom type to each node.
 
-The discriminator and reward network have the same architectures and receive graphs as inputs. A Relational-GCN and MLPs are used to produce the singular output
+Those outputs begin as probability distributions. Categorical sampling turns them into a discrete graph that downstream networks can evaluate. Predicting the full graph at once avoids graph-matching steps during generation, though the fixed output size also limits the maximum molecule size.
 
-![loss](https://github.com/user-attachments/assets/08dae9d6-48a9-40ee-a078-bcfeaa4f6984)
-MolGAN is based on a type of GAN called a Wasserstein GAN (WGAN), which is known for its stable training. The model uses a custom loss function that combines the WGAN loss with a reinforcement learning objective.
+![Diagram of the MolGAN generator, discriminator, and reward network](https://github.com/user-attachments/assets/95fedfec-9ee7-44ac-90be-cd5b965ddb1a)
 
-### Output 
-## Pure Rl (lamda = 0)
-![pure](https://private-user-images.githubusercontent.com/136881235/483899664-524d059e-aabe-4081-b11d-427593cfa8d3.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTY1Nzc1NTUsIm5iZiI6MTc1NjU3NzI1NSwicGF0aCI6Ii8xMzY4ODEyMzUvNDgzODk5NjY0LTUyNGQwNTllLWFhYmUtNDA4MS1iMTFkLTQyNzU5M2NmYThkMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwODMwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDgzMFQxODA3MzVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNDhhZDA1MTk1ZGY4YmY4MmQ1MmIxY2JhN2JkZWUwZmM2MjY5ODgyYzMwZmY1YjZiN2MwNTYzMTE4OTNiYmM4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.aViw6bA3DzHOdRuD9h196irxm9EqeJR0fyzSIXLJGjI)
+## MolGAN architecture in PyTorch
 
+The implementation has three trainable parts.
 
-## Mixture of WGAN and RL (lambda = 0.5)
-![Mix](https://github.com/user-attachments/assets/455a0340-b58d-456f-8425-e099b4f47052)
+### Generator
 
-## Pure WGAN
-![Wgan](https://private-user-images.githubusercontent.com/136881235/483899686-bdd69193-3ff0-4005-adb9-7465a9eaa542.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTY1Nzc1NTUsIm5iZiI6MTc1NjU3NzI1NSwicGF0aCI6Ii8xMzY4ODEyMzUvNDgzODk5Njg2LWJkZDY5MTkzLTNmZjAtNDAwNS1hZGI5LTc0NjVhOWVhYTU0Mi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwODMwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDgzMFQxODA3MzVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lOWIxYmE2MDQ4NGMwOWNjZGQ3NGM0ZDczMjM4OWIzMGFjZDJjNGMwNDViZDliNjFhMmY0ZmI0YjlkMzNmN2RkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.AhXBGVjaECd-WU3fI4sVCZw_VzE41-cNVFgtANdfioM)
-github: https://github.com/Sauravroy34/Molgan
+The generator is a multilayer perceptron (MLP). It maps a sample from a standard normal distribution to the bond tensor and atom-feature matrix. A molecule is produced in a single forward pass rather than assembled one node or edge at a time.
+
+### Discriminator
+
+The discriminator receives real molecular graphs from the training data and generated graphs from the model. A relational graph convolutional network (R-GCN) processes different bond relations before MLP layers reduce the graph to one score. That score supplies the adversarial part of training.
+
+### Reward network
+
+The reward network uses the same R-GCN-plus-MLP shape as the discriminator, but it has a different job. It predicts a reward associated with a chosen molecular metric and returns that signal to the generator. This makes it possible to steer generation instead of optimizing only for similarity to the training data.
+
+## How WGAN and reinforcement learning work together
+
+MolGAN combines a Wasserstein GAN (WGAN) objective with the reward signal. In the implementation, lambda controls their relative weight:
+
+- **lambda = 0:** the generator follows the reinforcement-learning reward;
+- **lambda = 0.5:** WGAN and reward objectives contribute equally;
+- **lambda = 1:** the generator follows the WGAN objective.
+
+These three runs are useful as implementation checks because they expose how the objective changes the generated samples. They are examples from this project, not a claim that one setting is universally best.
+
+### Pure reinforcement learning (lambda = 0)
+
+![Generated molecular samples from the pure reinforcement-learning run](https://github.com/user-attachments/assets/524d059e-aabe-4081-b11d-427593cfa8d3)
+
+### Mixed WGAN and reinforcement learning (lambda = 0.5)
+
+![Generated molecular samples from the mixed WGAN and reinforcement-learning run](https://github.com/user-attachments/assets/af1bbee3-7c51-4d6b-9e5f-7901f68118a5)
+
+### Pure WGAN (lambda = 1)
+
+![Generated molecular samples from the pure WGAN run](https://github.com/user-attachments/assets/bdd69193-3ff0-4005-adb9-7465a9eaa542)
+
+## Run the PyTorch implementation
+
+The repository contains the model definitions, QM9 preprocessing script, training loop, evaluation utilities, saved weights, and sample outputs. The shortest path through it is:
+
+1. clone the [MolGAN PyTorch repository](https://github.com/Sauravroy34/Molgan);
+2. run `download_dataset.sh` to fetch the molecular-metrics assets used by the utilities;
+3. generate the sparse QM9 dataset with `sparse_molecular_dataset.py`;
+4. start training with `train.py` and set lambda for the objective you want to inspect.
+
+The code builds on the original [MolGAN paper](https://arxiv.org/abs/1805.11973) and a public [PyTorch implementation](https://github.com/kfzyqin/Implementation-MolGAN-PyTorch). Check the repository README before running it because dataset preparation and local paths may need adjustment for your environment.
+
+## MolGAN FAQ
