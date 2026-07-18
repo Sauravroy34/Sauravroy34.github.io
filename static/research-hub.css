@@ -206,6 +206,25 @@
   color: #fff !important;
 }
 
+.research-close-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: baseline;
+}
+
+.research-secondary-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #b9d8d2 !important;
+  font-weight: 500;
+}
+
+.research-secondary-link:hover,
+.research-secondary-link:focus-visible {
+  color: #fff !important;
+}
+
 @media (min-width: 680px) {
   .research-feature-grid {
     grid-template-columns: 1.08fr 0.92fr;

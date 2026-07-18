@@ -110,7 +110,17 @@
     if (!link) return;
 
     var href = link.getAttribute("href");
-    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0 || href.indexOf("mailto:") === 0) {
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) {
+      return;
+    }
+
+    if (href.toLowerCase().indexOf("mailto:") === 0) {
+      if (!link.hasAttribute("data-research-contact")) return;
+
+      window.posthog.capture("content_link_clicked", {
+        route: window.location.pathname,
+        target_type: "research_contact"
+      });
       return;
     }
 
