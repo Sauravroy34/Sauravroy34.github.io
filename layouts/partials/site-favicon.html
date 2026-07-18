@@ -1,4 +1,4 @@
 <meta name="description" content="{{ with .Description }}{{ . | plainify }}{{ else }}{{ .Site.Params.metaDescription }}{{ end }}">
-<link rel="canonical" href="{{ .Permalink }}">
+{{ partial "site-canonical.html" . }}
 <link rel="icon" href="{{ .Site.Params.favicon | absURL }}" type="image/svg+xml">
 {{ partial "site-schema.html" . }}
