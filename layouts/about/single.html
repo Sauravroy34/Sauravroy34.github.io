@@ -1,0 +1,28 @@
+{{ define "header" }}
+<div>
+	<h2>
+		<a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}" class="heading font-cursive icon">{{ .Site.Title }}</a>
+	</h2>
+</div>
+<h1 class="pt-2">{{ .Title }}</h1>
+{{ with .Description }}
+<p class="font-serif text-java-700 font-normal leading-relaxed pt-2">{{ . }}</p>
+{{ end }}
+<hr />
+{{ end }}
+
+{{ define "main" }}
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text max-w-2xl">
+			{{- .Content -}}
+		</div>
+	</section>
+</article>
+{{ end }}
+
+{{ define "aside" }}
+	{{ partial "page-aside.html" . }}
+{{ end }}
+
+{{ define "footer" }}{{ end }}
