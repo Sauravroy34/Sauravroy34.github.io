@@ -6,7 +6,7 @@ enableRobotsTXT = true
 
 
 [params]
-math = true # for introducing $KaTEX$
+math = false # opt individual pages into KaTeX with `math = true` front matter
 env = "production" # for Google Analytics and DISQUS.
 bannerFont = "fonts/exampleFont" # custom your own font for the title.
 postDateFormat = "2006-1-2" # override custom date format posts.

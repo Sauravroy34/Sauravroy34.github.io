@@ -4,9 +4,6 @@ date = 2026-02-07T18:21:33+05:30
 description = 'Can LLMS learn chemistry'
 +++
 
-##
-# OLMO learns Chemistry
-
 **Pre-trained Model link**: https://huggingface.co/Codemaster67/OLMo-7B-USPTO-1k-ZINC
 
 ## Can a general LLM learn chemistry?
@@ -31,11 +28,11 @@ More details about the pre-training can be found in the repo https://github.com/
 
 ## Results
 
-#### Classification
+### Classification
 <img width="1374" height="907" alt="Classification" src="https://github.com/user-attachments/assets/7d8c43ba-b723-4199-9490-844f6979d228" />
 
 
-#### Regression
+### Regression
 <img width="1380" height="689" alt="Regression" src="https://github.com/user-attachments/assets/ee8115f9-6f7d-488a-b141-313336cda874" />
 
 
