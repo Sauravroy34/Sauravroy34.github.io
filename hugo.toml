@@ -2,6 +2,7 @@ baseURL = 'https://Sauravroy34.github.io'
 languageCode = 'en-us'
 title = 'Saurav Kumar Roy'
 theme = 'hugo-theme-tokiwa'
+enableRobotsTXT = true
 
 
 [params]

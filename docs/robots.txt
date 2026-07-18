@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Sauravroy34.github.io/sitemap.xml
