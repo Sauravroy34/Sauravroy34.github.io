@@ -2,7 +2,7 @@
 title = 'MolGAN in PyTorch: Molecular Graph Generation from Scratch'
 date = 2025-08-28T22:18:14+05:30
 lastmod = 2026-07-22T00:00:00+00:00
-description = 'A practical guide to implementing MolGAN in PyTorch with a graph generator, R-GCN discriminator, reward network, WGAN training, and reinforcement learning.'
+description = 'MolGAN PyTorch implementation guide covering molecular graph generation, the R-GCN discriminator, reward network, WGAN training, and QM9 setup.'
 research_contact = true
 
 [[faqs]]
