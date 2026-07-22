@@ -1,0 +1,29 @@
+{{ define "header" }}
+{{ partial "page-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "entry-post.css" | relURL }}">
+<article class="entry-post">
+	<section class="mx-auto content">
+		<div class="entry-short-answer" aria-labelledby="entry-short-answer-title">
+			<h2 id="entry-short-answer-title">Short answer</h2>
+			<p>{{ .Params.short_answer }}</p>
+		</div>
+		<div class="c-rich-text">
+			{{- .Content -}}
+		</div>
+		{{ with .Params.primary_cta_url }}
+		<a class="entry-primary" href="{{ . | relURL }}">{{ $.Params.primary_cta_label }} <span aria-hidden="true">→</span></a>
+		{{ end }}
+	</section>
+</article>
+{{ end }}
+
+{{ define "aside" }}
+	{{ partial "page-aside.html" . }}
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "page-footer.html" . }}
+{{ end }}

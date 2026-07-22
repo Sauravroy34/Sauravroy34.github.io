@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Feb 2026 18:21:33 +0530</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Teaching OLMo-7B chemistry with ChEMBL SMILES</title><link>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</link><pubDate>Sat, 07 Feb 2026 18:21:33 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</guid><description>&lt;p>Can a general language model learn representations that transfer to molecular property prediction? This project tests that question by continuing the pre-training of &lt;strong>OLMo-7B&lt;/strong> on chemical SMILES, then adapting it to a set of &lt;strong>MoleculeNet&lt;/strong> classification and regression tasks.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Saurav Kumar Roy</title><link>https://Sauravroy34.github.io/posts/</link><description>Recent content in Posts on Saurav Kumar Roy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 22 Jul 2026 18:40:00 +0000</lastBuildDate><atom:link href="https://Sauravroy34.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Molecular Graphs vs SMILES: Two Chemistry AI Representations</title><link>https://Sauravroy34.github.io/posts/molecular-graphs-vs-smiles-chemistry-ai/</link><pubDate>Wed, 22 Jul 2026 18:40:00 +0000</pubDate><guid>https://Sauravroy34.github.io/posts/molecular-graphs-vs-smiles-chemistry-ai/</guid><description>&lt;p>Molecular graphs and SMILES can describe the same molecule, but they present it to a model in different forms. A graph model works with nodes and bond relations. A language model works with an ordered sequence of tokens.&lt;/p>
+&lt;p>The practical difference is visible in two projects on this site. &lt;a href="https://Sauravroy34.github.io/posts/molgan/">MolGAN generates molecular graphs directly&lt;/a>, while &lt;a href="https://Sauravroy34.github.io/posts/olmo_learns_chemistry/">the OLMo chemistry project continues pre-training on SMILES strings&lt;/a>. They are not a controlled benchmark against each other. They show how the representation changes the data pipeline, model interface, and output.&lt;/p>
+&lt;h2 id="the-two-pipelines-at-a-glance">The two pipelines at a glance&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Pipeline question&lt;/th>
+&lt;th>Molecular graph path: MolGAN&lt;/th>
+&lt;th>SMILES path: OLMo-7B&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>What enters the model?&lt;/td>
+&lt;td>Node features and bond relations&lt;/td>
+&lt;td>Token IDs and an attention mask&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>What does the core model use?&lt;/td>
+&lt;td>A graph generator plus graph-convolution networks&lt;/td>
+&lt;td>A causal language model with a QLoRA adapter&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>What is trained?&lt;/td>
+&lt;td>Graph generation with adversarial and reward signals&lt;/td>
+&lt;td>Next-token prediction on SMILES strings&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>What does this project inspect?&lt;/td>
+&lt;td>Generated molecular graphs and objective settings&lt;/td>
+&lt;td>A chemistry-adapted language model evaluated on MoleculeNet tasks&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>This comparison describes the two implementations. It does not establish that one representation is generally more accurate, valid, or useful.&lt;/p>
+&lt;h2 id="how-the-graph-path-works-in-molgan">How the graph path works in MolGAN&lt;/h2>
+&lt;p>MolGAN represents each molecule with two outputs:&lt;/p>
+&lt;ul>
+&lt;li>an adjacency tensor for the bond type between each pair of nodes;&lt;/li>
+&lt;li>a feature matrix for the atom type at each node.&lt;/li>
+&lt;/ul>
+&lt;p>The generator maps one latent vector to both outputs. In the &lt;a href="https://github.com/Sauravroy34/Molgan/blob/aaebc35930f540ec0eb138bcab9a4413422ecd79/models.py">inspectable PyTorch model definition&lt;/a>, separate multilayer perceptrons produce the node and adjacency tensors, and the adjacency output is made symmetric before it is returned. A later sampling step turns the probability tensors into a discrete graph.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/95fedfec-9ee7-44ac-90be-cd5b965ddb1a" alt="Diagram of the MolGAN generator, discriminator, and reward network">&lt;/p>
+&lt;p>The discriminator and reward network then read the graph through relational graph-convolution layers. This keeps atoms and bonds explicit throughout the pipeline. The &lt;a href="https://arxiv.org/abs/1805.11973">original MolGAN paper&lt;/a> describes the same core idea: generate small molecular graphs directly and combine the adversarial objective with a reinforcement-learning signal for selected properties.&lt;/p>
+&lt;p>The benefit here is not that the representation guarantees a chemically valid result. It is that the generator, discriminator, and reward model all operate on the molecular graph rather than translating it into text first.&lt;/p>
+&lt;h2 id="how-the-smiles-path-works-in-olmo-7b">How the SMILES path works in OLMo-7B&lt;/h2>
+&lt;p>The OLMo project keeps the interface of a causal language model. Its training code reads the &lt;code>smiles&lt;/code> field from the ChEMBL training split, passes each string through the OLMo tokenizer, and creates labels from the resulting token IDs.&lt;/p>
+&lt;p>The &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry/blob/153366ac8b9b0d3a4b3d4bcb81947806dad14340/Chembl_2M_and_instruction/RawSmiles.py">immutable training source&lt;/a> shows the exact path: sequences are truncated or padded to 256 tokens, padding labels are masked, and a 4-bit QLoRA adapter targets the model&amp;rsquo;s linear layers. The model therefore learns from molecular strings through the same next-token interface used for language modeling.&lt;/p>
+&lt;p>That makes it possible to reuse a pretrained language model and its sequence tooling. It also means the molecular structure reaches the model through the order and syntax of a SMILES string rather than as an explicit adjacency tensor.&lt;/p>
+&lt;p>The &lt;a href="https://Sauravroy34.github.io/posts/olmo_learns_chemistry/">OLMo chemistry project notes&lt;/a> document what happened after continued pre-training: the model was adapted to five classification and three regression tasks. Those results belong to that project alone and should not be read as a graph-versus-SMILES comparison.&lt;/p>
+&lt;h2 id="what-the-representation-changes">What the representation changes&lt;/h2>
+&lt;h3 id="data-preparation">Data preparation&lt;/h3>
+&lt;p>MolGAN&amp;rsquo;s path prepares atom labels and bond labels, then converts them into tensors. The OLMo path prepares text strings, token IDs, attention masks, and causal-language-model labels.&lt;/p>
+&lt;h3 id="model-components">Model components&lt;/h3>
+&lt;p>The graph path needs components that understand relations between nodes. The SMILES path can use a language model directly because the molecule has already been serialized into a string.&lt;/p>
+&lt;h3 id="output-and-evaluation">Output and evaluation&lt;/h3>
+&lt;p>MolGAN produces a candidate graph that can be decoded as a molecule and scored by graph-based networks. The OLMo project produces an adapted language model, then evaluates learned representations on downstream molecular-property tasks.&lt;/p>
+&lt;p>These are different modeling jobs. A fair comparison would require the same dataset, split, task, evaluation code, and repeated runs. The current projects do not provide that experiment.&lt;/p>
+&lt;h2 id="a-narrow-rule-for-choosing">A narrow rule for choosing&lt;/h2>
+&lt;p>Use the graph path when the model needs to generate or score atom-and-bond tensors directly. Use the SMILES path when the goal is to reuse a pretrained language model and a token-sequence training stack.&lt;/p>
+&lt;p>That is an architectural starting point, not a universal ranking. The right representation still depends on the task, data, constraints, and evaluation protocol.&lt;/p>
+&lt;p>For the implementation details, read the &lt;a href="https://Sauravroy34.github.io/posts/molgan/">MolGAN PyTorch guide&lt;/a> and the &lt;a href="https://Sauravroy34.github.io/posts/olmo_learns_chemistry/">OLMo chemistry results&lt;/a>. The &lt;a href="https://Sauravroy34.github.io/research/">Research collection&lt;/a> connects both projects to the rest of the chemistry AI work.&lt;/p></description></item><item><title>Teaching OLMo-7B chemistry with ChEMBL SMILES</title><link>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</link><pubDate>Sat, 07 Feb 2026 18:21:33 +0530</pubDate><guid>https://Sauravroy34.github.io/posts/olmo_learns_chemistry/</guid><description>&lt;p>Can a general language model learn representations that transfer to molecular property prediction? This project tests that question by continuing the pre-training of &lt;strong>OLMo-7B&lt;/strong> on chemical SMILES, then adapting it to a set of &lt;strong>MoleculeNet&lt;/strong> classification and regression tasks.&lt;/p>
 &lt;p>&lt;strong>Project sources:&lt;/strong> &lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry">inspect the training and benchmark code&lt;/a> or &lt;a href="https://huggingface.co/Codemaster67/ChemOlmo-7b">open the ChemOlmo-7b model artifact&lt;/a>.&lt;/p>
 &lt;h2 id="what-was-trained">What was trained&lt;/h2>
 &lt;p>The current training path starts from &lt;a href="https://huggingface.co/allenai/OLMo-7B">OLMo-7B&lt;/a>, a general language model trained on the &lt;a href="https://arxiv.org/abs/2402.00159">Dolma corpus&lt;/a>. The project applies 4-bit QLoRA continued pre-training to the SMILES field in the &lt;a href="https://huggingface.co/datasets/antoinebcx/smiles-molecules-chembl">ChEMBL molecule-generation dataset&lt;/a>.&lt;/p>

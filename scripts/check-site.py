@@ -13,6 +13,7 @@ from urllib.parse import unquote, urlsplit
 SITE_ORIGIN = "https://Sauravroy34.github.io"
 REQUIRED_SITEMAP_URLS = {
     f"{SITE_ORIGIN}/about/",
+    f"{SITE_ORIGIN}/posts/molecular-graphs-vs-smiles-chemistry-ai/",
     f"{SITE_ORIGIN}/research/",
 }
 REQUIRED_REDIRECT = Path("posts/diffusion_based_poem_genrator/index.html")
@@ -141,6 +142,28 @@ def check_homepage_gateway(site_root: Path) -> list[str]:
     ]
 
 
+def check_chemistry_entry_post(site_root: Path) -> list[str]:
+    page = site_root / "posts/molecular-graphs-vs-smiles-chemistry-ai/index.html"
+    if not page.is_file():
+        return ["chemistry-AI entry post is missing"]
+
+    content = page.read_text(encoding="utf-8")
+    requirements = {
+        "Molecular Graphs vs SMILES": "focused page title",
+        f'href={SITE_ORIGIN}/posts/molecular-graphs-vs-smiles-chemistry-ai/': "self-canonical URL",
+        'name=ROBOTS content="INDEX, FOLLOW"': "index, follow directive",
+        'href=/posts/molgan/': "MolGAN internal link",
+        'href=/posts/olmo_learns_chemistry/': "OLMo internal link",
+        'href=/research/': "Research internal link",
+        'class=entry-primary': "primary Research action",
+    }
+    return [
+        f"chemistry-AI entry post is missing {label}"
+        for marker, label in requirements.items()
+        if marker not in content
+    ]
+
+
 def main() -> int:
     site_root = Path(sys.argv[1] if len(sys.argv) > 1 else "docs").resolve()
     if not site_root.is_dir():
@@ -153,6 +176,7 @@ def main() -> int:
         *check_redirect(site_root),
         *check_obsolete_files(site_root),
         *check_homepage_gateway(site_root),
+        *check_chemistry_entry_post(site_root),
     ]
     if failures:
         print("Site checks failed:", file=sys.stderr)
