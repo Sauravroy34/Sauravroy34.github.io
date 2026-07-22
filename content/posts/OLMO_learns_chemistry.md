@@ -1,7 +1,7 @@
 +++
 title = 'Teaching OLMo-7B chemistry with ChEMBL SMILES'
 date = 2026-02-07T18:21:33+05:30
-lastmod = 2026-07-18T00:00:00+00:00
+lastmod = 2026-07-22T00:00:00+00:00
 description = 'Continued pre-training OLMo-7B on chemical SMILES, followed by MoleculeNet classification and regression tests with explicit evidence limits.'
 +++
 
@@ -61,7 +61,9 @@ The results support a modest conclusion: continued pre-training on chemical SMIL
 
 > These are project-recorded results, not an independently reproduced or peer-reviewed evaluation. The repository includes notebook outputs for individual tasks, but the notebooks do not fully reproduce every rounded value in the summary figures, and the figures do not report uncertainty for the ChemOlmo row.
 
-The external model rows also need care. The [ChemBERTa-3 paper](https://doi.org/10.26434/chemrxiv-2025-4glrl-v2) shows that MoLFormer scaffold splits differ from DeepChem scaffold splits and says results produced with different split algorithms cannot be compared directly. That means the MoLFormer paper row in these figures is useful context, not evidence that one model definitively ranks above another.
+The external model rows also need care. The [ChemBERTa-3 paper](https://doi.org/10.26434/chemrxiv-2025-4glrl-v2) reports that results produced with different scaffold-splitting algorithms cannot be compared directly. The authors' [immutable project README](https://github.com/deepforestsci/chemberta3/blob/39c89bca4d75be36be8afcb6e2a38fd4e6eabf29/README.md#molformer-scaffold-splits) documents that the MoLFormer scaffold split differs significantly from DeepChem's. That means the MoLFormer paper row in these figures is useful context, not evidence that one model definitively ranks above another.
+
+> Availability note: The paper host may show a browser security check. The immutable README above provides the split-method evidence without that gate.
 
 This experiment does not evaluate molecular generation, reaction prediction, QM9, or SIDER. It also does not establish state-of-the-art performance. A stronger follow-up would rerun every model under one fixed split, publish seeds and per-run scores, and generate the tables directly from saved evaluation artifacts.
 
@@ -74,7 +76,7 @@ This experiment does not evaluate molecular generation, reaction prediction, QM9
 5. [ChEMBL SMILES dataset](https://huggingface.co/datasets/antoinebcx/smiles-molecules-chembl)
 6. [DeepChem](https://github.com/deepchem/deepchem)
 7. [MoleculeNet](https://arxiv.org/abs/1703.00564)
-8. [ChemBERTa-3](https://doi.org/10.26434/chemrxiv-2025-4glrl-v2)
+8. [ChemBERTa-3](https://doi.org/10.26434/chemrxiv-2025-4glrl-v2) ([immutable split-method fallback](https://github.com/deepforestsci/chemberta3/blob/39c89bca4d75be36be8afcb6e2a38fd4e6eabf29/README.md#molformer-scaffold-splits))
 9. [MoLFormer](https://arxiv.org/abs/2106.09553)
 
 ## Explore the research collection
