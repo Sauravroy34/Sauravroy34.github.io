@@ -1,0 +1,63 @@
+.article-contact {
+  --contact-ink: #01513a;
+  --contact-text: #4a5568;
+  --contact-accent: #028760;
+  --contact-surface: #e6f3ef;
+  --contact-line: #9acfbf;
+  max-width: 68ch;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--contact-line);
+  border-radius: 0.35rem;
+  background: var(--contact-surface);
+  color: var(--contact-text);
+}
+
+.article-contact h2,
+.article-contact p {
+  margin: 0;
+}
+
+.article-contact h2 {
+  color: var(--contact-ink);
+  font-family: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.article-contact p {
+  max-width: 58ch;
+  margin-top: 0.65rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.article-contact-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  color: var(--contact-accent) !important;
+  font-weight: 700;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.2em;
+}
+
+.article-contact-link:hover {
+  color: var(--contact-ink) !important;
+}
+
+.article-contact-link:focus-visible {
+  border-radius: 0.15rem;
+  outline: 3px solid #2c726e;
+  outline-offset: 3px;
+}
+
+@media (max-width: 679px) {
+  .article-contact {
+    margin: 2.5rem 0;
+    padding: 1.25rem;
+  }
+}

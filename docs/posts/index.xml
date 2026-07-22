@@ -159,6 +159,11 @@
 &lt;p>Availability note: The paper host may show a browser security check. The immutable README above provides the split-method evidence without that gate.&lt;/p>
 &lt;/blockquote>
 &lt;p>This experiment does not evaluate molecular generation, reaction prediction, QM9, or SIDER. It also does not establish state-of-the-art performance. A stronger follow-up would rerun every model under one fixed split, publish seeds and per-run scores, and generate the tables directly from saved evaluation artifacts.&lt;/p>
+&lt;aside class="article-contact" aria-labelledby="research-contact-title">
+&lt;h2 id="research-contact-title">Working on a related problem?&lt;/h2>
+&lt;p>If this project connects to your research, email me with the question or collaboration you have in mind.&lt;/p>
+&lt;a class="article-contact-link" href="mailto:sauravroy34@mail.tin.computer" data-research-contact>Email Saurav &lt;span aria-hidden="true">→&lt;/span>&lt;/a>
+&lt;/aside>
 &lt;h2 id="references">References&lt;/h2>
 &lt;ol>
 &lt;li>&lt;a href="https://github.com/Sauravroy34/Teaching_LLMS_Chemistry">Project repository&lt;/a>&lt;/li>
@@ -297,6 +302,11 @@ Relative to be checked, and asexualerdi nightnightnightnightfalled; I&amp;rsquo;
 &lt;p>&lt;img src="https://github.com/user-attachments/assets/af1bbee3-7c51-4d6b-9e5f-7901f68118a5" alt="Generated molecular samples from the mixed WGAN and reinforcement-learning run">&lt;/p>
 &lt;h3 id="pure-wgan-lambda--1">Pure WGAN (lambda = 1)&lt;/h3>
 &lt;p>&lt;img src="https://github.com/user-attachments/assets/bdd69193-3ff0-4005-adb9-7465a9eaa542" alt="Generated molecular samples from the pure WGAN run">&lt;/p>
+&lt;aside class="article-contact" aria-labelledby="research-contact-title">
+&lt;h2 id="research-contact-title">Working on a related problem?&lt;/h2>
+&lt;p>If this project connects to your research, email me with the question or collaboration you have in mind.&lt;/p>
+&lt;a class="article-contact-link" href="mailto:sauravroy34@mail.tin.computer" data-research-contact>Email Saurav &lt;span aria-hidden="true">→&lt;/span>&lt;/a>
+&lt;/aside>
 &lt;h2 id="run-the-pytorch-implementation">Run the PyTorch implementation&lt;/h2>
 &lt;p>The repository contains the model definitions, QM9 preprocessing script, training loop, evaluation utilities, saved weights, and sample outputs. The shortest path through it is:&lt;/p>
 &lt;ol>

@@ -3,6 +3,7 @@ title = 'Teaching OLMo-7B chemistry with ChEMBL SMILES'
 date = 2026-02-07T18:21:33+05:30
 lastmod = 2026-07-22T00:00:00+00:00
 description = 'Continued pre-training OLMo-7B on chemical SMILES, followed by MoleculeNet classification and regression tests with explicit evidence limits.'
+research_contact = true
 +++
 
 Can a general language model learn representations that transfer to molecular property prediction? This project tests that question by continuing the pre-training of **OLMo-7B** on chemical SMILES, then adapting it to a set of **MoleculeNet** classification and regression tasks.
@@ -66,6 +67,8 @@ The external model rows also need care. The [ChemBERTa-3 paper](https://doi.org/
 > Availability note: The paper host may show a browser security check. The immutable README above provides the split-method evidence without that gate.
 
 This experiment does not evaluate molecular generation, reaction prediction, QM9, or SIDER. It also does not establish state-of-the-art performance. A stronger follow-up would rerun every model under one fixed split, publish seeds and per-run scores, and generate the tables directly from saved evaluation artifacts.
+
+{{< research-contact >}}
 
 ## References
 

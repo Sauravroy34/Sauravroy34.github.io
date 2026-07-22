@@ -165,6 +165,46 @@ def check_chemistry_entry_post(site_root: Path) -> list[str]:
     ]
 
 
+def check_flagship_contact_prompts(site_root: Path) -> list[str]:
+    failures: list[str] = []
+    expected_destination = "mailto:sauravroy34@mail.tin.computer"
+    for route in ("molgan", "olmo_learns_chemistry"):
+        page = site_root / f"posts/{route}/index.html"
+        if not page.is_file():
+            failures.append(f"flagship article is missing: posts/{route}/")
+            continue
+
+        content = page.read_text(encoding="utf-8")
+        if content.count("data-research-contact") != 1:
+            failures.append(
+                f"posts/{route}/ must have exactly one measured research-contact action"
+            )
+        if expected_destination not in content:
+            failures.append(
+                f"posts/{route}/ research-contact action does not open the managed inbox"
+            )
+        if "article-contact.css" not in content:
+            failures.append(f"posts/{route}/ is missing contact-prompt styles")
+
+    analytics = site_root / "analytics.js"
+    if not analytics.is_file():
+        failures.append("analytics.js is missing")
+    else:
+        content = analytics.read_text(encoding="utf-8")
+        requirements = {
+            'window.posthog.capture("content_link_clicked"': "contact click event",
+            "source_section: sourceSection(link)": "fixed source-section label",
+            'target_type: "research_contact"': "stable research-contact action type",
+        }
+        failures.extend(
+            f"analytics.js is missing {label}"
+            for marker, label in requirements.items()
+            if marker not in content
+        )
+
+    return failures
+
+
 def main() -> int:
     site_root = Path(sys.argv[1] if len(sys.argv) > 1 else "docs").resolve()
     if not site_root.is_dir():
@@ -178,6 +218,7 @@ def main() -> int:
         *check_obsolete_files(site_root),
         *check_homepage_gateway(site_root),
         *check_chemistry_entry_post(site_root),
+        *check_flagship_contact_prompts(site_root),
     ]
     if failures:
         print("Site checks failed:", file=sys.stderr)
