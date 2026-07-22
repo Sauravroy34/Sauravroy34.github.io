@@ -11,7 +11,7 @@ env = "production" # for Google Analytics and DISQUS.
 bannerFont = "fonts/exampleFont" # custom your own font for the title.
 postDateFormat = "2006-1-2" # override custom date format posts.
 favicon = "/favicon.svg"
-metaDescription = "Saurav Kumar Roy's notes on chemistry, artificial intelligence, open-source software, and scientific computing."
+metaDescription = "Saurav Kumar Roy's work in AI for science, deep learning, machine learning, chemistry, and scientific computing."
 
 [menu]
 # Shown in the side menu.
