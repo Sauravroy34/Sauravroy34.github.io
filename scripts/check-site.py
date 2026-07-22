@@ -121,6 +121,26 @@ def check_obsolete_files(site_root: Path) -> list[str]:
     ]
 
 
+def check_homepage_gateway(site_root: Path) -> list[str]:
+    homepage = site_root / "index.html"
+    if not homepage.is_file():
+        return ["homepage is missing"]
+
+    content = homepage.read_text(encoding="utf-8")
+    requirements = {
+        'id=home-gateway-title': "chemistry AI gateway heading",
+        'class=home-primary href=/research/': "primary Research action",
+        'href=/posts/olmo_learns_chemistry/': "OLMo entry point",
+        'href=/posts/molgan/': "MolGAN entry point",
+        'id=home-latest-title': "latest-notes section",
+    }
+    return [
+        f"homepage is missing {label}"
+        for marker, label in requirements.items()
+        if marker not in content
+    ]
+
+
 def main() -> int:
     site_root = Path(sys.argv[1] if len(sys.argv) > 1 else "docs").resolve()
     if not site_root.is_dir():
@@ -132,6 +152,7 @@ def main() -> int:
         *check_sitemap(site_root),
         *check_redirect(site_root),
         *check_obsolete_files(site_root),
+        *check_homepage_gateway(site_root),
     ]
     if failures:
         print("Site checks failed:", file=sys.stderr)

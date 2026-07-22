@@ -1,0 +1,51 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "homepage.css" | relURL }}">
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ $paginator := .Paginate $pages 6 }}
+
+{{ if eq $paginator.PageNumber 1 }}
+<section class="home-gateway" aria-labelledby="home-gateway-title">
+	<p class="home-kicker">Chemistry AI research</p>
+	<h1 id="home-gateway-title">Chemistry AI, built and tested in public</h1>
+	<p class="home-intro">I build generative and language models for chemistry, then document the code, evaluations, and evidence limits.</p>
+	<a class="home-primary" href="{{ "/research/" | relURL }}">Explore the research <span aria-hidden="true">→</span></a>
+</section>
+
+<section class="home-featured" aria-labelledby="home-featured-title">
+	<h2 id="home-featured-title" class="home-section-title">Start with the core projects</h2>
+	<div class="home-feature-grid">
+		<article class="home-feature-card">
+			<a class="home-feature-image" href="{{ "/posts/olmo_learns_chemistry/" | relURL }}" tabindex="-1" aria-hidden="true">
+				<img src="https://github.com/user-attachments/assets/3ab3eb65-3076-4d1f-bd5f-7fbb823e623e" alt="" loading="eager">
+			</a>
+			<div class="home-feature-copy">
+				<p class="home-feature-label">Language models for chemistry</p>
+				<h3><a href="{{ "/posts/olmo_learns_chemistry/" | relURL }}">Teaching OLMo-7B chemistry</a></h3>
+				<p>Continued pre-training on ChEMBL SMILES, evaluated across eight MoleculeNet tasks.</p>
+			</div>
+		</article>
+		<article class="home-feature-card">
+			<a class="home-feature-image" href="{{ "/posts/molgan/" | relURL }}" tabindex="-1" aria-hidden="true">
+				<img src="https://github.com/user-attachments/assets/95fedfec-9ee7-44ac-90be-cd5b965ddb1a" alt="" loading="eager">
+			</a>
+			<div class="home-feature-copy">
+				<p class="home-feature-label">Molecular graph generation</p>
+				<h3><a href="{{ "/posts/molgan/" | relURL }}">MolGAN in PyTorch</a></h3>
+				<p>A from-scratch guide to graph generation, WGAN training, and reward optimization.</p>
+			</div>
+		</article>
+	</div>
+</section>
+{{ end }}
+
+<section class="home-latest" aria-labelledby="home-latest-title">
+	<h2 id="home-latest-title" class="home-section-title">{{ if eq $paginator.PageNumber 1 }}Latest notes{{ else }}Earlier notes{{ end }}</h2>
+	{{ range $paginator.Pages }}
+		<div>{{ partial "summary.html" . }}</div>
+	{{ end }}
+</section>
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "list-footer.html" . }}
+{{ end }}
