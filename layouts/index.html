@@ -5,21 +5,21 @@
 
 {{ if eq $paginator.PageNumber 1 }}
 <section class="home-gateway" aria-labelledby="home-gateway-title">
-	<p class="home-kicker">Chemistry AI research</p>
-	<h1 id="home-gateway-title">Chemistry AI, built and tested in public</h1>
-	<p class="home-intro">I build generative and language models for chemistry, then document the code, evaluations, and evidence limits.</p>
+	<p class="home-kicker">AI in science</p>
+	<h1 id="home-gateway-title">AI in science, from code to evidence</h1>
+	<p class="home-intro">I explore deep learning, machine learning, and scientific computing through chemistry models, generative systems, and astronomical data. Each project connects the method to inspectable code and results.</p>
 	<a class="home-primary" href="{{ "/research/" | relURL }}">Explore the research <span aria-hidden="true">→</span></a>
 </section>
 
 <section class="home-featured" aria-labelledby="home-featured-title">
-	<h2 id="home-featured-title" class="home-section-title">Start with the core projects</h2>
+	<h2 id="home-featured-title" class="home-section-title">Three ways into the work</h2>
 	<div class="home-feature-grid">
 		<article class="home-feature-card">
 			<a class="home-feature-image" href="{{ "/posts/olmo_learns_chemistry/" | relURL }}" tabindex="-1" aria-hidden="true">
 				<img src="https://github.com/user-attachments/assets/3ab3eb65-3076-4d1f-bd5f-7fbb823e623e" alt="" loading="eager">
 			</a>
 			<div class="home-feature-copy">
-				<p class="home-feature-label">Language models for chemistry</p>
+				<p class="home-feature-label">Machine learning for chemistry</p>
 				<h3><a href="{{ "/posts/olmo_learns_chemistry/" | relURL }}">Teaching OLMo-7B chemistry</a></h3>
 				<p>Continued pre-training on ChEMBL SMILES, evaluated across eight MoleculeNet tasks.</p>
 			</div>
@@ -29,9 +29,19 @@
 				<img src="https://github.com/user-attachments/assets/95fedfec-9ee7-44ac-90be-cd5b965ddb1a" alt="" loading="eager">
 			</a>
 			<div class="home-feature-copy">
-				<p class="home-feature-label">Molecular graph generation</p>
+				<p class="home-feature-label">Deep generative models</p>
 				<h3><a href="{{ "/posts/molgan/" | relURL }}">MolGAN in PyTorch</a></h3>
 				<p>A from-scratch guide to graph generation, WGAN training, and reward optimization.</p>
+			</div>
+		</article>
+		<article class="home-feature-card">
+			<a class="home-feature-image" href="{{ "/posts/jwst-light-curve-and-planet-spectra/" | relURL }}" tabindex="-1" aria-hidden="true">
+				<img src="https://github.com/user-attachments/assets/66baeb9c-f64f-4c27-a1e9-f8a0d4cc22d4" alt="" loading="lazy">
+			</a>
+			<div class="home-feature-copy">
+				<p class="home-feature-label">Scientific computing</p>
+				<h3><a href="{{ "/posts/jwst-light-curve-and-planet-spectra/" | relURL }}">JWST spectra and light curves</a></h3>
+				<p>Working with telescope data to inspect an exoplanet transit and atmospheric spectrum.</p>
 			</div>
 		</article>
 	</div>

@@ -129,10 +129,11 @@ def check_homepage_gateway(site_root: Path) -> list[str]:
 
     content = homepage.read_text(encoding="utf-8")
     requirements = {
-        'id=home-gateway-title': "chemistry AI gateway heading",
+        'AI in science, from code to evidence': "AI-in-science gateway heading",
         'class=home-primary href=/research/': "primary Research action",
         'href=/posts/olmo_learns_chemistry/': "OLMo entry point",
         'href=/posts/molgan/': "MolGAN entry point",
+        'href=/posts/jwst-light-curve-and-planet-spectra/': "JWST entry point",
         'id=home-latest-title': "latest-notes section",
     }
     return [
