@@ -1,0 +1,110 @@
+.entry-post {
+  --entry-ink: #01513a;
+  --entry-text: #4a5568;
+  --entry-accent: #028760;
+  --entry-surface: #e6f3ef;
+  --entry-line: #9acfbf;
+}
+
+.entry-post .content {
+  max-width: 46rem;
+}
+
+.entry-short-answer {
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--entry-line);
+  border-radius: 0.35rem;
+  background: var(--entry-surface);
+}
+
+.entry-short-answer h2,
+.entry-short-answer p {
+  margin: 0;
+}
+
+.entry-short-answer h2 {
+  color: var(--entry-ink);
+  font-family: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.entry-short-answer p {
+  max-width: 62ch;
+  margin-top: 0.65rem;
+  color: var(--entry-text);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.entry-post .c-rich-text > p,
+.entry-post .c-rich-text > ul,
+.entry-post .c-rich-text > ol {
+  max-width: 68ch;
+}
+
+.entry-post .c-rich-text h2,
+.entry-post .c-rich-text h3 {
+  text-wrap: balance;
+}
+
+.entry-post .c-rich-text table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.entry-post .c-rich-text img {
+  width: 100%;
+  border: 1px solid var(--entry-line);
+  border-radius: 0.35rem;
+  background: #fff;
+}
+
+.entry-primary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 2.5rem;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--entry-accent);
+  border-radius: 0.25rem;
+  background: var(--entry-accent);
+  background-image: none !important;
+  color: #fff !important;
+  font-weight: 700;
+  transition: background-color 160ms ease-out, border-color 160ms ease-out, transform 160ms ease-out;
+}
+
+.entry-primary:hover,
+.entry-primary:focus-visible {
+  border-color: var(--entry-ink);
+  background: var(--entry-ink);
+  transform: translateY(-1px);
+}
+
+.entry-post a:focus-visible {
+  outline: 3px solid #2c726e;
+  outline-offset: 3px;
+}
+
+@media (max-width: 679px) {
+  .entry-short-answer {
+    padding: 1rem;
+  }
+
+  .entry-post .c-rich-text table {
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-primary {
+    transition: none;
+  }
+}
