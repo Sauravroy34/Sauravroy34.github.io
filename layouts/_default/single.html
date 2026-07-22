@@ -3,6 +3,9 @@
 {{ end }}
 
 {{ define "main" }}
+{{ if .Params.research_contact }}
+<link rel="stylesheet" href="{{ "article-contact.css" | relURL }}">
+{{ end }}
 <article>
 	<section class="mx-auto content">
 		<div class="c-rich-text">

@@ -1,7 +1,9 @@
 +++
 title = 'MolGAN in PyTorch: Molecular Graph Generation from Scratch'
 date = 2025-08-28T22:18:14+05:30
+lastmod = 2026-07-22T00:00:00+00:00
 description = 'A practical guide to implementing MolGAN in PyTorch with a graph generator, R-GCN discriminator, reward network, WGAN training, and reinforcement learning.'
+research_contact = true
 
 [[faqs]]
 question = 'What is MolGAN?'
@@ -72,6 +74,8 @@ These three runs are useful as implementation checks because they expose how the
 ### Pure WGAN (lambda = 1)
 
 ![Generated molecular samples from the pure WGAN run](https://github.com/user-attachments/assets/bdd69193-3ff0-4005-adb9-7465a9eaa542)
+
+{{< research-contact >}}
 
 ## Run the PyTorch implementation
 
