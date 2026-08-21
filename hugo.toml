@@ -32,7 +32,7 @@ metaDescription = "Saurav Kumar Roy's work in AI for science, deep learning, mac
     url = "/posts/"
   [[menu.main]]
     name = "CV"
-    url = "https://drive.google.com/file/d/1u51Wccr5W_7IC8p_tIF_HVTwFgAfArxl/view?usp=sharing"
+    url = "https://drive.google.com/file/d/1BV_OGGco2SOGoaLPfLAuG_YuVw4v-ou0/view?usp=sharing"
     identifier = "CV"
     weight = 4
 
